@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class MovieSearchTableViewController: UITableViewController {
+class MovieSearchTableViewController: UITableViewController, UISearchBarDelegate {
     //My OMDb key b925edef
     var currentCellMovieTitle: String = ""
     var currentCellMovieType: String = ""
     
-    let movieURL = URL(string: "http://www.omdbapi.com/?apikey=b925edef&pages=25&s=")
+    let movieURL = URL(string: "http://www.omdbapi.com/?apikey=b925edef&s=")
     
     var movieArray: [Movie] = []
     
@@ -26,7 +26,7 @@ class MovieSearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        saveButton.isEnabled = false
     }
     
     // MARK: - Table view data source
@@ -60,7 +60,12 @@ class MovieSearchTableViewController: UITableViewController {
                     
                     guard let json = jsonObjects as? Dictionary<String, Any>,
                         let movies = json["Search"] else {
-                            print("Faild to access movies")
+                            
+                            let alert = UIAlertController(title: "There were no search results available for that search term", message: nil, preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                            self.present(alert, animated: true)
+                            
+                            print("Failed to access movies")
                             return
                     }
                     
@@ -97,6 +102,7 @@ class MovieSearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        saveButton.isEnabled = true
         let currentCell = tableView.cellForRow(at: indexPath)
         guard let movieTitle = currentCell?.textLabel?.text,
             let movieType = currentCell?.detailTextLabel?.text else { return }
@@ -127,5 +133,6 @@ class MovieSearchTableViewController: UITableViewController {
         } catch {
             print("Failed saving")
         }
+        saveButton.isEnabled = false
     }
 }
