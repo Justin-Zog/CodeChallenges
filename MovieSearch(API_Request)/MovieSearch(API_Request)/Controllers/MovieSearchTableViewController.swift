@@ -64,7 +64,6 @@ class MovieSearchTableViewController: UITableViewController, UISearchBarDelegate
                             let alert = UIAlertController(title: "There were no search results available for that search term", message: nil, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                             self.present(alert, animated: true)
-                            
                             print("Failed to access movies")
                             return
                     }
