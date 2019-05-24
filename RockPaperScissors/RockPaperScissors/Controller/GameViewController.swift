@@ -12,8 +12,6 @@ class GameViewController: UIViewController {
     
     var lastPlayedArray: [Int] = []
     
-    var totalRounds: Int = 0
-    
     var wins: Int = 0
     var loses: Int = 0
     var ties: Int = 0
@@ -71,7 +69,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        if lastPlayedArray.count > 10  {
+        if lastPlayedArray.count > 7  {
             let rockRatio = ((rocks / 23) * 100)
             let paperRatio = ((papers / 23) * 100)
             // let scissorsRatio = ((scissors / 23) * 100)
@@ -79,12 +77,12 @@ class GameViewController: UIViewController {
             
             if compsTempNumber <= rockRatio {
                 compsNumber = 1
-            } else if rockRatio < compsTempNumber && compsTempNumber <= (rockRatio + paperRatio) {
+            } else if rockRatio...(rockRatio + paperRatio) ~= compsTempNumber {
                 compsNumber = 2
-            } else if (rockRatio + paperRatio) < compsTempNumber && compsTempNumber <= 100 {
+            } else if (rockRatio + paperRatio)...100 ~= compsTempNumber {
                 compsNumber = 0
             }
-        } else if lastPlayedArray.count < 10 {
+        } else if lastPlayedArray.count < 7 {
             let setCompsNumber: Int = Int.random(in: 0...2)
             compsNumber = setCompsNumber
         }
@@ -175,8 +173,6 @@ class GameViewController: UIViewController {
         updateLastPlayedArray()
         yourChoiceImage.image = UIImage(named: "Rock")
         setCompsImage()
-        totalRounds += 1
-        print(totalRounds)
     }
     
     @IBAction func paperButtonTapped(_ sender: Any) {
@@ -185,8 +181,6 @@ class GameViewController: UIViewController {
         updateLastPlayedArray()
         yourChoiceImage.image = UIImage(named: "Paper")
         setCompsImage()
-        totalRounds += 1
-        print(totalRounds)
     }
     
     @IBAction func scissorsButtonTapped(_ sender: Any) {
@@ -195,7 +189,5 @@ class GameViewController: UIViewController {
         updateLastPlayedArray()
         yourChoiceImage.image = UIImage(named: "Scissors")
         setCompsImage()
-        totalRounds += 1
-        print(totalRounds)
     }
 }
