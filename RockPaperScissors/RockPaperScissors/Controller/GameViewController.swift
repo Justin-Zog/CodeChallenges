@@ -14,6 +14,11 @@ class GameViewController: UIViewController {
     
     var totalRounds: Int = 0
     
+    var wins: Int = 0
+    var loses: Int = 0
+    var ties: Int = 0
+    var totalPlayed: Int = 0
+    
     var currentScore: Int = 0
     var highScore: Int = 0
     var usersNumber: Int = -1
@@ -27,10 +32,28 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var compsChoiceImage: UIImageView!
     
+    @IBOutlet weak var amountWonLabel: UILabel!
+    
+    @IBOutlet weak var amountTiedLabel: UILabel!
+    
+    @IBOutlet weak var amountLostLabel: UILabel!
+    
+    @IBOutlet weak var winPercentageLabel: UILabel!
+    
+    @IBOutlet weak var tiePercentageLabel: UILabel!
+    
+    @IBOutlet weak var losePercentageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         yourChoiceImage.image = nil
         compsChoiceImage.image = nil
+        amountWonLabel.text = "Won:"
+        amountTiedLabel.text = "Tied:"
+        amountLostLabel.text = "Lost:"
+        winPercentageLabel.text = "0%"
+        tiePercentageLabel.text = "0%"
+        losePercentageLabel.text = "0%"
     }
     
     func compChoose() {
@@ -48,7 +71,7 @@ class GameViewController: UIViewController {
             }
         }
         
-        if lastPlayedArray.count == 30 {
+        if lastPlayedArray.count > 10  {
             let rockRatio = ((rocks / 23) * 100)
             let paperRatio = ((papers / 23) * 100)
             // let scissorsRatio = ((scissors / 23) * 100)
@@ -61,7 +84,7 @@ class GameViewController: UIViewController {
             } else if (rockRatio + paperRatio) < compsTempNumber && compsTempNumber <= 100 {
                 compsNumber = 0
             }
-        } else if lastPlayedArray.count < 30 {
+        } else if lastPlayedArray.count < 10 {
             let setCompsNumber: Int = Int.random(in: 0...2)
             compsNumber = setCompsNumber
         }
@@ -73,11 +96,13 @@ class GameViewController: UIViewController {
         case 0:
             switch compsNumber {
             case 0:
-                return
+                ties += 1
             case 1:
                 currentScore -= 1
+                loses += 1
             case 2:
                 currentScore += 1
+                wins += 1
             default:
                 print("Something went wrong")
             }
@@ -85,10 +110,12 @@ class GameViewController: UIViewController {
             switch compsNumber {
             case 0:
                 currentScore += 1
+                wins += 1
             case 1:
-                return
+                ties += 1
             case 2:
                 currentScore -= 1
+                loses += 1
             default:
                 print("Something went wrong")
             }
@@ -96,17 +123,29 @@ class GameViewController: UIViewController {
             switch compsNumber {
             case 0:
                 currentScore -= 1
+                loses += 1
             case 1:
                 currentScore += 1
+                wins += 1
             case 2:
-                return
+                ties += 1
             default:
                 print("Something went wrong")
             }
         default:
             print("User didn't choose button")
         }
+        totalPlayed += 1
+        let percentWon: Double = round((Double(wins) / Double(totalPlayed)) * 100)
+        let percentTied: Double = round((Double(ties) / Double(totalPlayed)) * 100)
+        let percentLost: Double = round((Double(loses) / Double(totalPlayed)) * 100)
         currentScoreLabel?.text = String("Current Score: \(currentScore)")
+        amountWonLabel.text = String("Won: \(wins)")
+        amountTiedLabel.text = String("Tied: \(ties)")
+        amountLostLabel.text = String("Lost: \(loses)")
+        winPercentageLabel.text = String("\(percentWon)%")
+        tiePercentageLabel.text = String("\(percentTied)%")
+        losePercentageLabel.text = String("\(percentLost)%")
     }
     
     func updateLastPlayedArray() {
