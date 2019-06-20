@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2j-2p-6aS">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Countdown View Controller-->
+        <scene sceneID="A0m-dl-0N7">
+            <objects>
+                <viewController id="d2j-2p-6aS" customClass="CountdownViewController" customModule="Countdown" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7p4-q0-kpx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rln-Q8-ro0">
+                                <rect key="frame" x="182.5" y="437" width="49" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbb-Wu-WAk">
+                                <rect key="frame" x="174.5" y="467.5" width="65" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="eYU-xJ-ceU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                <state key="normal" title="Begin"/>
+                                <connections>
+                                    <action selector="beginButtonTapped:" destination="d2j-2p-6aS" eventType="touchUpInside" id="i4o-nA-MIp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rln-Q8-ro0" firstAttribute="centerY" secondItem="7p4-q0-kpx" secondAttribute="centerY" id="FaD-PU-d5w"/>
+                            <constraint firstItem="rln-Q8-ro0" firstAttribute="centerX" secondItem="7p4-q0-kpx" secondAttribute="centerX" id="ek5-my-lBg"/>
+                            <constraint firstItem="Sbb-Wu-WAk" firstAttribute="centerX" secondItem="7p4-q0-kpx" secondAttribute="centerX" id="nQm-TH-cqW"/>
+                            <constraint firstItem="Sbb-Wu-WAk" firstAttribute="top" secondItem="rln-Q8-ro0" secondAttribute="bottom" constant="8" id="xYR-v0-W7y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8uA-z0-hdv"/>
+                    </view>
+                    <connections>
+                        <outlet property="beginButton" destination="Sbb-Wu-WAk" id="BG3-7a-Vdr"/>
+                        <outlet property="countdownLabel" destination="rln-Q8-ro0" id="tZf-T2-MjD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYL-2q-zq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82.608695652173921" y="147.99107142857142"/>
+        </scene>
+    </scenes>
+</document>

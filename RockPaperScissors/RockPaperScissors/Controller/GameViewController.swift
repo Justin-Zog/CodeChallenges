@@ -11,6 +11,7 @@ import UIKit
 class GameViewController: UIViewController {
     
     var lastPlayedArray: [Int] = []
+    var lastPlayedRound: [Int] = []
     
     var wins: Int = 0
     var loses: Int = 0
@@ -146,6 +147,17 @@ class GameViewController: UIViewController {
         losePercentageLabel.text = String("\(percentLost)%")
     }
     
+    func updateLastPlayedRoundArray() {
+        if lastPlayedArray.count == 30 {
+            for i in 1...2 { /* Runs the code twice */
+                lastPlayedRound.append(usersNumber)
+            }
+            for lastedPlayed in lastPlayedRound {
+                lastPlayedArray.append(lastedPlayed)
+            }
+        }
+    }
+    
     func updateLastPlayedArray() {
         if lastPlayedArray.count == 30 {
             lastPlayedArray.remove(at: 0)
@@ -171,6 +183,7 @@ class GameViewController: UIViewController {
         usersNumber = 0
         changeScore()
         updateLastPlayedArray()
+        updateLastPlayedRoundArray()
         yourChoiceImage.image = UIImage(named: "Rock")
         setCompsImage()
     }
@@ -179,6 +192,7 @@ class GameViewController: UIViewController {
         usersNumber = 1
         changeScore()
         updateLastPlayedArray()
+        updateLastPlayedRoundArray()
         yourChoiceImage.image = UIImage(named: "Paper")
         setCompsImage()
     }
@@ -187,6 +201,7 @@ class GameViewController: UIViewController {
         usersNumber = 2
         changeScore()
         updateLastPlayedArray()
+        updateLastPlayedRoundArray()
         yourChoiceImage.image = UIImage(named: "Scissors")
         setCompsImage()
     }
