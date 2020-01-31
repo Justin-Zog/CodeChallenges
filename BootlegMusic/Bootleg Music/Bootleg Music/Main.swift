@@ -19,6 +19,8 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
     
     @IBOutlet weak var lowerControlPanelView: UIView!
     
+    @IBOutlet weak var shuffleButton: UIButton!
+    
     // List of songs &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     var mrHeartache: Song = Song("Mr. Heartache", "Sekai No Owari", URL(fileURLWithPath: Bundle.main.path(forResource: "MrHeartache", ofType: "mp3")!))
     var antiHero: Song = Song("Anti-Hero", "Sekai No Owari", URL(fileURLWithPath: Bundle.main.path(forResource: "AntiHero", ofType: "mp3")!))
@@ -31,7 +33,7 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
     var zenZenZenSe: Song = Song("前前前世 (Zenzenzense)", "RADWIMPS", URL(fileURLWithPath: Bundle.main.path(forResource: "zenzenzense", ofType: "mp3")!))
     // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
     
-    var audioPlayer: AVAudioPlayer!
+    var audioPlayer: AVAudioPlayer?
     
     var paused: Bool = false
     
@@ -101,10 +103,10 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
         // Starts the timer
         songTimerSlider.maximumValue = Float(audioPlayer!.duration)
         _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(("updateSongTimer")), userInfo: nil, repeats: true)
-        audioPlayer?.delegate = self
+        audioPlayer!.delegate = self
         // Plays the song
-        audioPlayer?.prepareToPlay()
-        audioPlayer?.play()
+        audioPlayer!.prepareToPlay()
+        audioPlayer!.play()
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -131,6 +133,10 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
         mainTableView.reloadData()
     }
     
+    func shuffle() {
+        
+    }
+    
     @IBAction func sortByAlphabeticalOrderButtonTapped(_ sender: Any) {
         sortByName()
     }
@@ -142,29 +148,39 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
     }
     
     @IBAction func songTimerMoved(_ sender: Any) {
-        audioPlayer?.stop()
-        audioPlayer?.currentTime = TimeInterval(songTimerSlider.value)
-        audioPlayer?.prepareToPlay()
-        audioPlayer?.play()
+        if let audioPlayer = audioPlayer {
+            audioPlayer.stop()
+            audioPlayer.currentTime = TimeInterval(songTimerSlider.value)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        }
     }
     
     @IBAction func pauseButtonTapped(_ sender: Any) {
-        if paused == false {
-            audioPlayer?.pause()
-            paused = true
-        } else {
-            audioPlayer?.play()
-            paused = false
+        if let audioPlayer = audioPlayer {
+            if paused == false {
+                audioPlayer.pause()
+                paused = true
+            } else {
+                audioPlayer.play()
+                paused = false
+            }
         }
     }
     
     @IBAction func skipButtonTapped(_ sender: Any) {
-        audioPlayer?.stop()
-        audioPlayer?.currentTime = TimeInterval(songTimerSlider.maximumValue - 0.05)
-        audioPlayer?.prepareToPlay()
-        audioPlayer?.play()
+        if let audioPlayer = audioPlayer {
+            audioPlayer.stop()
+            audioPlayer.currentTime = TimeInterval(songTimerSlider.maximumValue - 0.05)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        }
     }
     
+    @IBAction func shuffleButtonTapped(_ sender: Any) {
+        counter = Int.random(in: 0 ... songs.count)
+        playSong()
+    }
     
     
 }
