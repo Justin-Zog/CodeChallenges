@@ -39,7 +39,11 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
     
     var counter: Int = 0
     
+    var isShuffled = false
+    
     var songs: [Song] = []
+    
+    var shuffledSongs: [Song] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,8 +99,25 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
     
     func playSong() {
         // Tries to get the song
+        isShuffled = false
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: songs[counter].filePath)
+        } catch let error {
+            print("Can't play the audio file, failed with error \(error.localizedDescription)")
+        }
+        // Starts the timer
+        songTimerSlider.maximumValue = Float(audioPlayer!.duration)
+        _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(("updateSongTimer")), userInfo: nil, repeats: true)
+        audioPlayer!.delegate = self
+        // Plays the song
+        audioPlayer!.prepareToPlay()
+        audioPlayer!.play()
+    }
+    
+    func playShuffledSongs() {
+        // Tries to get the song
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: shuffledSongs[counter].filePath)
         } catch let error {
             print("Can't play the audio file, failed with error \(error.localizedDescription)")
         }
@@ -120,7 +141,11 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
             counter = 0
         }
         
-        playSong()
+        if isShuffled == false {
+            playSong()
+        } else {
+            playShuffledSongs()
+        }
     }
     
     @objc func updateSongTimer() {
@@ -178,8 +203,12 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
     }
     
     @IBAction func shuffleButtonTapped(_ sender: Any) {
-        counter = Int.random(in: 0 ... songs.count)
-        playSong()
+        isShuffled = true
+        var randomGenerator = SystemRandomNumberGenerator()
+        shuffledSongs = songs
+        shuffledSongs = shuffledSongs.shuffled(using: &randomGenerator)
+        print(shuffledSongs[counter].name)
+        playShuffledSongs()
     }
     
     
