@@ -93,39 +93,53 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hz-EV-E3H">
                                 <rect key="frame" x="0.0" y="613" width="375" height="54"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFI-xJ-pF9">
-                                        <rect key="frame" x="8" y="6" width="42" height="42"/>
-                                        <state key="normal" title="Pause"/>
-                                        <connections>
-                                            <action selector="pauseButtonTapped:" destination="2c5-nJ-BQq" eventType="touchUpInside" id="s9N-3d-mfe"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGr-ja-lU2">
-                                        <rect key="frame" x="337" y="6" width="30" height="42"/>
-                                        <state key="normal" title="Skip"/>
-                                        <connections>
-                                            <action selector="skipButtonTapped:" destination="2c5-nJ-BQq" eventType="touchUpInside" id="lWc-2w-goK"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDC-LD-m5G">
-                                        <rect key="frame" x="162.5" y="6" width="50" height="42"/>
+                                        <rect key="frame" x="317" y="6" width="50" height="42"/>
                                         <state key="normal" title="Shuffle"/>
                                         <connections>
                                             <action selector="shuffleButtonTapped:" destination="2c5-nJ-BQq" eventType="touchUpInside" id="j7N-ef-WzL"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="2IL-Vn-erE">
+                                        <rect key="frame" x="80" y="6" width="215" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="048-Bf-Ebg">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="40"/>
+                                                <state key="normal" title="Rewind"/>
+                                                <connections>
+                                                    <action selector="rewindButtonTapped:" destination="2c5-nJ-BQq" eventType="touchUpInside" id="4ED-vP-hRo"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFI-xJ-pF9">
+                                                <rect key="frame" x="97" y="0.0" width="42" height="40"/>
+                                                <state key="normal" title="Pause"/>
+                                                <connections>
+                                                    <action selector="pauseButtonTapped:" destination="2c5-nJ-BQq" eventType="touchUpInside" id="s9N-3d-mfe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGr-ja-lU2">
+                                                <rect key="frame" x="185" y="0.0" width="30" height="40"/>
+                                                <state key="normal" title="Skip"/>
+                                                <connections>
+                                                    <action selector="skipButtonTapped:" destination="2c5-nJ-BQq" eventType="touchUpInside" id="lWc-2w-goK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="HoI-rn-EX5"/>
+                                            <constraint firstAttribute="width" constant="215" id="RuL-xc-q5B"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="qDC-LD-m5G" secondAttribute="bottom" constant="6" id="88a-eZ-Hr4"/>
-                                    <constraint firstItem="dGr-ja-lU2" firstAttribute="top" secondItem="2hz-EV-E3H" secondAttribute="top" constant="6" id="FWE-qR-gZN"/>
-                                    <constraint firstAttribute="bottom" secondItem="dGr-ja-lU2" secondAttribute="bottom" constant="6" id="Ppd-RT-yNl"/>
-                                    <constraint firstItem="qDC-LD-m5G" firstAttribute="centerX" secondItem="2hz-EV-E3H" secondAttribute="centerX" id="Rso-U4-ewv"/>
-                                    <constraint firstItem="qDC-LD-m5G" firstAttribute="top" secondItem="2hz-EV-E3H" secondAttribute="top" constant="6" id="hGy-Y6-H4g"/>
-                                    <constraint firstAttribute="trailing" secondItem="dGr-ja-lU2" secondAttribute="trailing" constant="8" id="k3d-JC-kee"/>
-                                    <constraint firstItem="XFI-xJ-pF9" firstAttribute="leading" secondItem="2hz-EV-E3H" secondAttribute="leading" constant="8" id="pes-uP-jeA"/>
-                                    <constraint firstItem="XFI-xJ-pF9" firstAttribute="top" secondItem="2hz-EV-E3H" secondAttribute="top" constant="6" id="xkK-6n-8Qq"/>
-                                    <constraint firstAttribute="bottom" secondItem="XFI-xJ-pF9" secondAttribute="bottom" constant="6" id="yBR-J6-SV6"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2IL-Vn-erE" secondAttribute="bottom" constant="6" id="3Rd-Bf-HGI"/>
+                                    <constraint firstItem="qDC-LD-m5G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2IL-Vn-erE" secondAttribute="trailing" constant="10" id="6Lb-7s-CXI"/>
+                                    <constraint firstItem="2IL-Vn-erE" firstAttribute="centerX" secondItem="2hz-EV-E3H" secondAttribute="centerX" id="98M-RN-h5v"/>
+                                    <constraint firstItem="2IL-Vn-erE" firstAttribute="top" secondItem="2hz-EV-E3H" secondAttribute="top" constant="6" id="RlW-sS-MPa"/>
+                                    <constraint firstAttribute="trailing" secondItem="qDC-LD-m5G" secondAttribute="trailing" constant="8" id="jqF-kl-cLz"/>
+                                    <constraint firstItem="qDC-LD-m5G" firstAttribute="top" secondItem="2hz-EV-E3H" secondAttribute="top" constant="6" id="und-ZM-uCs"/>
+                                    <constraint firstAttribute="bottom" secondItem="qDC-LD-m5G" secondAttribute="bottom" constant="6" id="zq4-ry-Kts"/>
                                 </constraints>
                             </view>
                         </subviews>

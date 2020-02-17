@@ -211,5 +211,24 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
         playShuffledSongs()
     }
     
+    @IBAction func rewindButtonTapped(_ sender: Any) {
+        if let audioPlayer = audioPlayer {
+            if audioPlayer.currentTime < 2 {
+                counter -= 1
+                audioPlayer.stop()
+                audioPlayer.currentTime = TimeInterval(songTimerSlider.minimumValue + 0.05)
+                if isShuffled {
+                    playShuffledSongs()
+                } else {
+                    playSong()
+                }
+            } else {
+                audioPlayer.stop()
+                audioPlayer.currentTime = TimeInterval(songTimerSlider.minimumValue + 0.05)
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+            }
+        }
+    }
     
 }
