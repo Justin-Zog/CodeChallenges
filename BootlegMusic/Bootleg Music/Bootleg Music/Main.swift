@@ -217,6 +217,7 @@ class Main: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudi
                 counter -= 1
                 audioPlayer.stop()
                 audioPlayer.currentTime = TimeInterval(songTimerSlider.minimumValue + 0.05)
+                // Checks which song array we're currently playing
                 if isShuffled {
                     playShuffledSongs()
                 } else {
