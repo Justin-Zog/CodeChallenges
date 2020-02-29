@@ -7,7 +7,6 @@
 //
 
 // This file will make a deck of cards as well as include functions that can be used on the deck
-
 import Foundation
 
 
@@ -16,7 +15,6 @@ func makeDeck() -> [String] {
     var deck: [String] = []
     // Creates four cards of each suit
     for i in 1...13 {
-        print(i)
         deck.append("\(i)D")
         deck.append("\(i)H")
         deck.append("\(i)S")
@@ -36,7 +34,7 @@ func shuffleDeck(deck: [String]) -> [String] {
 
 
 // Draws a card and removes it from the deck
-func drawCard(deck: [String]) -> String? {
+func drawCard(deck: [String]) -> ([String], String?) {
     var deck = deck
     // Makes a new deck and shuffles it if the current deck has zero cards
     if deck.count <= 0 {
@@ -47,12 +45,12 @@ func drawCard(deck: [String]) -> String? {
     guard let card = deck.first else {
         print("There were no cards in the deck")
         // This should never get called because we make a new deck if all the cards are gone
-        return nil
+        return (deck, nil)
     }
     // Remove the card we drew from the deck
     deck.removeFirst()
     
-    return card
+    return (deck, card)
 }
 
 
@@ -60,11 +58,11 @@ func drawCard(deck: [String]) -> String? {
 func suitOdds(deck: [String]) -> [String]? {
     var deck = deck
     var odds: [String] = []
-    var totalCards: Int = 0
-    var diamonds: Int = 0
-    var hearts: Int = 0
-    var spades: Int = 0
-    var clubs: Int = 0
+    var totalCards: Double = 0
+    var diamonds: Double = 0
+    var hearts: Double = 0
+    var spades: Double = 0
+    var clubs: Double = 0
     
     // Makes a new deck and shuffles it if the current deck has zero cards
     if deck.count <= 0 {
@@ -94,10 +92,15 @@ func suitOdds(deck: [String]) -> [String]? {
     
     // Appends the odds array with the odds, it will look like [%Diamonds a diamond, %Hearts a heart, %Spades a spade, %Clubs a club]
     if totalCards != 0 {
-        odds.append("%\(diamonds / totalCards) a diamond")
-        odds.append("%\(hearts / totalCards) a heart")
-        odds.append("%\(spades / totalCards) a spade")
-        odds.append("%\(clubs / totalCards) a club")
+        // We multiply by 10,000 then divide by 100 so we get a number rounded to 2 decimal places
+        let percentDiamonds = (round((diamonds / totalCards) * 10000) / 100)
+        let percentHearts = (round((hearts / totalCards) * 10000) / 100)
+        let percentSpades = (round((spades / totalCards) * 10000) / 100)
+        let percentClubs = (round((clubs / totalCards) * 10000) / 100)
+        odds.append("%\(percentDiamonds) a diamond")
+        odds.append("%\(percentHearts) a heart")
+        odds.append("%\(percentSpades) a spade")
+        odds.append("%\(percentClubs) a club")
     }
     
     // Checks to see if odds is empty and returns it if it is not
@@ -114,20 +117,20 @@ func suitOdds(deck: [String]) -> [String]? {
 func numberOdds(deck: [String]) -> [String]? {
     var deck = deck
     var odds: [String] = []
-    var totalCards: Int = 0
-    var aces: Int = 0
-    var twos: Int = 0
-    var threes: Int = 0
-    var fours: Int = 0
-    var fives: Int = 0
-    var sixes: Int = 0
-    var sevens: Int = 0
-    var eights: Int = 0
-    var nines: Int = 0
-    var tens: Int = 0
-    var jacks: Int = 0
-    var queens: Int = 0
-    var kings: Int = 0
+    var totalCards: Double = 0
+    var aces: Double = 0
+    var twos: Double = 0
+    var threes: Double = 0
+    var fours: Double = 0
+    var fives: Double = 0
+    var sixes: Double = 0
+    var sevens: Double = 0
+    var eights: Double = 0
+    var nines: Double = 0
+    var tens: Double = 0
+    var jacks: Double = 0
+    var queens: Double = 0
+    var kings: Double = 0
     
     // Makes a new deck and shuffles it if the current deck has zero cards
     if deck.count <= 0 {
