@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>876030169125-sdvdtsr0utunnfp7dq7d3733osd9l0ih.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.876030169125-sdvdtsr0utunnfp7dq7d3733osd9l0ih</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDUoVBM3L8cq2aum1Ub2qT4Dk-vLkNbsS8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>876030169125</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ZawgApps.Casino</string>
+	<key>PROJECT_ID</key>
+	<string>casino-a3674</string>
+	<key>STORAGE_BUCKET</key>
+	<string>casino-a3674.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:876030169125:ios:0c53abca3d917df993afcc</string>
+	<key>DATABASE_URL</key>
+	<string>https://casino-a3674.firebaseio.com</string>
+</dict>
+</plist>

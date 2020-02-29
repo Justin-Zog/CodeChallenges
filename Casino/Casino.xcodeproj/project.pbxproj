@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		11588EAA240A5A4D00E0D151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11588EA8240A5A4D00E0D151 /* LaunchScreen.storyboard */; };
 		11588EB4240A5BCC00E0D151 /* DeckFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11588EB3240A5BCC00E0D151 /* DeckFunctions.swift */; };
 		11588EB6240A6F5900E0D151 /* GameSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11588EB5240A6F5900E0D151 /* GameSelectionViewController.swift */; };
+		11588EB8240AF1A900E0D151 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11588EB7240AF1A900E0D151 /* LoginViewController.swift */; };
+		11588EBA240AF49400E0D151 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11588EB9240AF49400E0D151 /* GoogleService-Info.plist */; };
+		416014F593FC14CC18129FCD /* Pods_Casino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959DAC358F4B82D49804CC46 /* Pods_Casino.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,12 @@
 		11588EAB240A5A4D00E0D151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11588EB3240A5BCC00E0D151 /* DeckFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckFunctions.swift; sourceTree = "<group>"; };
 		11588EB5240A6F5900E0D151 /* GameSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionViewController.swift; sourceTree = "<group>"; };
+		11588EB7240AF1A900E0D151 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		11588EB9240AF49400E0D151 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		11588EBB240AF8D500E0D151 /* Casino.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Casino.entitlements; sourceTree = "<group>"; };
+		363CC79C269B74350ACC58E3 /* Pods-Casino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casino.release.xcconfig"; path = "Target Support Files/Pods-Casino/Pods-Casino.release.xcconfig"; sourceTree = "<group>"; };
+		749DF73904ED84BE8A4E6B35 /* Pods-Casino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casino.debug.xcconfig"; path = "Target Support Files/Pods-Casino/Pods-Casino.debug.xcconfig"; sourceTree = "<group>"; };
+		959DAC358F4B82D49804CC46 /* Pods_Casino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Casino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416014F593FC14CC18129FCD /* Pods_Casino.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +56,8 @@
 			children = (
 				11588E99240A5A4B00E0D151 /* Casino */,
 				11588E98240A5A4B00E0D151 /* Products */,
+				D9FE19FF4677C8B56EA75A77 /* Pods */,
+				7A69274E361381FE59E47983 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +72,13 @@
 		11588E99240A5A4B00E0D151 /* Casino */ = {
 			isa = PBXGroup;
 			children = (
+				11588EBB240AF8D500E0D151 /* Casino.entitlements */,
 				11588E9A240A5A4B00E0D151 /* AppDelegate.swift */,
 				11588E9C240A5A4B00E0D151 /* SceneDelegate.swift */,
 				11588EA0240A5A4B00E0D151 /* Main.storyboard */,
 				11588EA8240A5A4D00E0D151 /* LaunchScreen.storyboard */,
 				11588EAB240A5A4D00E0D151 /* Info.plist */,
+				11588EB9240AF49400E0D151 /* GoogleService-Info.plist */,
 				11588EA6240A5A4D00E0D151 /* Assets.xcassets */,
 				11588EB1240A5B7300E0D151 /* Views */,
 				11588EB2240A5B8100E0D151 /* Models */,
@@ -76,6 +90,7 @@
 		11588EB1240A5B7300E0D151 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				11588EB7240AF1A900E0D151 /* LoginViewController.swift */,
 				11588EB5240A6F5900E0D151 /* GameSelectionViewController.swift */,
 			);
 			path = Views;
@@ -89,6 +104,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7A69274E361381FE59E47983 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				959DAC358F4B82D49804CC46 /* Pods_Casino.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9FE19FF4677C8B56EA75A77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				749DF73904ED84BE8A4E6B35 /* Pods-Casino.debug.xcconfig */,
+				363CC79C269B74350ACC58E3 /* Pods-Casino.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11588EAE240A5A4D00E0D151 /* Build configuration list for PBXNativeTarget "Casino" */;
 			buildPhases = (
+				D679D2143CA3A936AD9F8A66 /* [CP] Check Pods Manifest.lock */,
 				11588E93240A5A4B00E0D151 /* Sources */,
 				11588E94240A5A4B00E0D151 /* Frameworks */,
 				11588E95240A5A4B00E0D151 /* Resources */,
+				891DCE88855A08F41B726052 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11588EAA240A5A4D00E0D151 /* LaunchScreen.storyboard in Resources */,
+				11588EBA240AF49400E0D151 /* GoogleService-Info.plist in Resources */,
 				11588EA7240A5A4D00E0D151 /* Assets.xcassets in Resources */,
 				11588EA2240A5A4B00E0D151 /* Main.storyboard in Resources */,
 			);
@@ -155,11 +190,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		891DCE88855A08F41B726052 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Casino/Pods-Casino-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Casino/Pods-Casino-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Casino/Pods-Casino-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D679D2143CA3A936AD9F8A66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Casino-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		11588E93240A5A4B00E0D151 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11588EB8240AF1A900E0D151 /* LoginViewController.swift in Sources */,
 				11588EB6240A6F5900E0D151 /* GameSelectionViewController.swift in Sources */,
 				11588EA5240A5A4B00E0D151 /* Casino.xcdatamodeld in Sources */,
 				11588E9B240A5A4B00E0D151 /* AppDelegate.swift in Sources */,
@@ -306,8 +384,10 @@
 		};
 		11588EAF240A5A4D00E0D151 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 749DF73904ED84BE8A4E6B35 /* Pods-Casino.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Casino/Casino.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56XJY2WYJZ;
 				INFOPLIST_FILE = Casino/Info.plist;
@@ -325,8 +405,10 @@
 		};
 		11588EB0240A5A4D00E0D151 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 363CC79C269B74350ACC58E3 /* Pods-Casino.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Casino/Casino.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56XJY2WYJZ;
 				INFOPLIST_FILE = Casino/Info.plist;
