@@ -18,7 +18,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Segues to the next view controller if the user sign in is successful
         Auth.auth().addStateDidChangeListener { (auth, user) in
             // If the user exists, user is populated with the user's information
