@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var ref: DatabaseReference! = Database.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +73,10 @@ class LoginViewController: UIViewController {
         signUpAlert.addTextField { (textField) in
             textField.placeholder = "Password"
         }
+        // Adds the username text field
+        signUpAlert.addTextField { (textField) in
+            textField.placeholder = "Username"
+        }
         
         // Get the values from the textFields
         signUpAlert.addAction(UIAlertAction(title: "Sign Up", style: .default, handler: { _ in
@@ -82,15 +87,23 @@ class LoginViewController: UIViewController {
             // Gets the password
             guard let passwordTextField = signUpAlert.textFields?[1], let password = passwordTextField.text else { print("Could not get a password"); return }
             
+            // Gets the username
+            guard let usernameTextField = signUpAlert.textFields?[2], let username = usernameTextField.text else { print("Could not get username"); return }
+            
             // Creates a new user
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if error == nil {
                     // Authenticates the user by signing them in with the newly created account
                     Auth.auth().signIn(withEmail: email, password: password)
+                    // Once the user is authenticated, give them their poker chips
+                    guard let user = user?.user else { return }
+                    self.ref.child("users").child(user.uid).setValue(["email": user.email, "uid": user.uid, "username": username, "receivedMoney": "true", "whiteChip": "32", "redChip": "16", "blueChip": "8", "greenChip": "4", "blackChip": "2", "purpleChip": "1", "yellowChip": "0", "pinkChip": "0", "orangeChip": "0"])
                 }
             }
             
         }))
+        
+        signUpAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         // Present the alert controller
         self.present(signUpAlert, animated: true, completion: nil)

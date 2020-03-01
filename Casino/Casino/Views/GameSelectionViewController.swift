@@ -11,8 +11,34 @@ import Firebase
 
 class GameSelectionViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    var ref: DatabaseReference! = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Gets the user from firebase
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            guard let user = user else { return }
+            let uid = user.uid
+            self.ref.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                guard let username = value?["username"] as? String else { print("Failed to get username"); return }
+                
+                if username != "" {
+                    self.usernameLabel.text = ("Welcome " + username)
+                }
+                
+                /*
+                   this is how you would get the other results of the user, but we don't need them in this controller
+                let email = value?["email"] as? String ?? ""
+                let uid = value?["uid"] as? String ?? ""
+                */
+                
+            }
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -49,6 +75,13 @@ class GameSelectionViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func blackJackButtonTapped(_ sender: Any) {
+        // This automatically segues to the black jack game because you control dragged the segue from the button to the view.  This function isn't even really needed, the only reason this would come in handy is if you needed to push some data to the next controller.
+        
+        
+    }
+    
     
     /*
     // MARK: - Navigation

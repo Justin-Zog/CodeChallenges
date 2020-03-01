@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZAWG'S CASINO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P06-8R-lmD">
-                                <rect key="frame" x="83" y="159.5" width="248.5" height="60.5"/>
+                                <rect key="frame" x="83" y="234.5" width="248.5" height="60.5"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
                                 <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="KLp-D7-Q7I" firstAttribute="top" secondItem="wD0-Ed-Udv" secondAttribute="bottom" constant="16" id="Ur2-Nf-QOF"/>
                             <constraint firstItem="wD0-Ed-Udv" firstAttribute="centerX" secondItem="Wwm-Tf-YVj" secondAttribute="centerX" id="VkK-6Q-7NW"/>
                             <constraint firstItem="KLp-D7-Q7I" firstAttribute="centerX" secondItem="Wwm-Tf-YVj" secondAttribute="centerX" id="lGj-VP-Tiw"/>
-                            <constraint firstItem="Tde-km-fml" firstAttribute="top" secondItem="P06-8R-lmD" secondAttribute="bottom" constant="125" id="mfd-rb-t8F"/>
+                            <constraint firstItem="Tde-km-fml" firstAttribute="top" secondItem="P06-8R-lmD" secondAttribute="bottom" constant="50" id="mfd-rb-t8F"/>
                             <constraint firstItem="UAe-aQ-7ln" firstAttribute="top" secondItem="KLp-D7-Q7I" secondAttribute="bottom" constant="16" id="urP-eg-IO1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cfQ-Pf-4BD"/>
@@ -118,34 +118,132 @@
                                     <action selector="signOutButtonTapped:" destination="lS6-JW-8vS" eventType="touchUpInside" id="e8H-ra-vPc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-MY-Nky">
+                                <rect key="frame" x="8" y="96" width="398" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rL7-DE-sSN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fp2-TL-iLa">
+                                <rect key="frame" x="8" y="150" width="120" height="50"/>
+                                <color key="backgroundColor" red="0.38567948340000002" green="0.64099395280000004" blue="0.50194388629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="RVE-tM-1VS"/>
+                                    <constraint firstAttribute="height" constant="50" id="fbK-ZH-zoN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <state key="normal" title="Black Jack">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="blackJackButtonTapped:" destination="lS6-JW-8vS" eventType="touchUpInside" id="BU2-vc-jmW"/>
+                                    <segue destination="DWU-AH-mWN" kind="show" identifier="toBlackJack" id="zl2-5A-DfC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.36862745099999999" green="0.61568627450000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Fp2-TL-iLa" firstAttribute="top" secondItem="5Fo-MY-Nky" secondAttribute="bottom" constant="4" id="0rT-Gi-irD"/>
+                            <constraint firstItem="VrG-rJ-cbz" firstAttribute="trailing" secondItem="5Fo-MY-Nky" secondAttribute="trailing" constant="8" id="54Q-93-UyZ"/>
                             <constraint firstItem="GLk-uL-Jgv" firstAttribute="centerX" secondItem="ptm-x2-M2d" secondAttribute="centerX" id="GIx-By-dcE"/>
                             <constraint firstItem="VrG-rJ-cbz" firstAttribute="bottom" secondItem="GLk-uL-Jgv" secondAttribute="bottom" constant="8" id="NKE-cO-4JZ"/>
+                            <constraint firstItem="5Fo-MY-Nky" firstAttribute="leading" secondItem="VrG-rJ-cbz" secondAttribute="leading" constant="8" id="ewc-hc-KJv"/>
+                            <constraint firstItem="5Fo-MY-Nky" firstAttribute="top" secondItem="VrG-rJ-cbz" secondAttribute="top" constant="8" id="mXk-Ha-CwV"/>
+                            <constraint firstItem="Fp2-TL-iLa" firstAttribute="leading" secondItem="VrG-rJ-cbz" secondAttribute="leading" constant="8" id="vvJ-1p-EhD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VrG-rJ-cbz"/>
                     </view>
                     <navigationItem key="navigationItem" id="3dR-ZF-PJh"/>
+                    <connections>
+                        <outlet property="usernameLabel" destination="5Fo-MY-Nky" id="Erd-rF-k33"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9TL-Gl-onQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403" y="48"/>
+            <point key="canvasLocation" x="1402.8985507246377" y="47.544642857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Black Jack View Controller-->
         <scene sceneID="zAA-rv-sOr">
             <objects>
-                <viewController id="DWU-AH-mWN" sceneMemberID="viewController">
+                <viewController id="DWU-AH-mWN" customClass="BlackJackViewController" customModule="Casino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFC-gd-lsu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="km6-Ua-NBK">
+                                <rect key="frame" x="15" y="804" width="384" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbV-z7-Bm8">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                        <color key="backgroundColor" red="0.38567948340000002" green="0.64099395280000004" blue="0.50194388629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="TGr-fk-JOO"/>
+                                            <constraint firstAttribute="height" constant="50" id="WMN-ou-W2N"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="Hit Me">
+                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="hitMeTapped:" destination="DWU-AH-mWN" eventType="touchUpInside" id="6X5-I4-KE5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9s-jC-Z3Y">
+                                        <rect key="frame" x="132" y="0.0" width="120" height="50"/>
+                                        <color key="backgroundColor" red="0.87145766579999995" green="0.60219544169999994" blue="0.45486319069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SX6-g6-lNr"/>
+                                            <constraint firstAttribute="width" constant="120" id="fNH-sv-8eC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="Play Game">
+                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playGameButtonTapped:" destination="DWU-AH-mWN" eventType="touchUpInside" id="mWB-LE-f5o"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuF-yh-TDN">
+                                        <rect key="frame" x="264" y="0.0" width="120" height="50"/>
+                                        <color key="backgroundColor" red="0.38567948340000002" green="0.64099395280000004" blue="0.50194388629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="LJa-8K-pzN"/>
+                                            <constraint firstAttribute="height" constant="50" id="Ybj-lh-juu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="Stand">
+                                            <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="standTapped:" destination="DWU-AH-mWN" eventType="touchUpInside" id="hgU-uN-YvQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="glh-L5-gv8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.36862745099999999" green="0.61568627450000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="km6-Ua-NBK" firstAttribute="centerX" secondItem="xFC-gd-lsu" secondAttribute="centerX" id="acv-7f-drg"/>
+                            <constraint firstItem="e3H-5j-VXZ" firstAttribute="bottom" secondItem="km6-Ua-NBK" secondAttribute="bottom" constant="8" id="xG0-gz-Rk0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="e3H-5j-VXZ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vG9-X1-Ib6"/>
+                    <connections>
+                        <outlet property="hitMeButton" destination="GbV-z7-Bm8" id="0t6-qS-T4H"/>
+                        <outlet property="playGameButton" destination="I9s-jC-Z3Y" id="01w-Gq-kGx"/>
+                        <outlet property="standButton" destination="GuF-yh-TDN" id="iNN-hD-M80"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnS-9f-mHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2200" y="48"/>
+            <point key="canvasLocation" x="2198.5507246376815" y="47.544642857142854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yC5-TA-NXx">

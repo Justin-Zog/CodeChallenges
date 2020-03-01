@@ -34,7 +34,7 @@ func shuffleDeck(deck: [String]) -> [String] {
 
 
 // Draws a card and removes it from the deck
-func drawCard(deck: [String]) -> ([String], String?) {
+func drawCard(deck: [String]) -> ([String], String) {
     var deck = deck
     // Makes a new deck and shuffles it if the current deck has zero cards
     if deck.count <= 0 {
@@ -45,7 +45,8 @@ func drawCard(deck: [String]) -> ([String], String?) {
     guard let card = deck.first else {
         print("There were no cards in the deck")
         // This should never get called because we make a new deck if all the cards are gone
-        return (deck, nil)
+        // It just returns the five of clubs if this happens even tho it shouldn't
+        return (deck, "5C")
     }
     // Remove the card we drew from the deck
     deck.removeFirst()
