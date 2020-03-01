@@ -13,12 +13,22 @@ class GameSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     @IBAction func signOutButtonTapped(_ sender: Any) {
-        
         // Get the currentUser and their unique id (uid)
         let user = Auth.auth().currentUser!
         let onlineRef = Database.database().reference(withPath: "online/\(user.uid)")
@@ -33,12 +43,13 @@ class GameSelectionViewController: UIViewController {
             // Trys to sign the user out and dismisses the view controller if it does, otherwise print an error
             do {
                 try Auth.auth().signOut()
-                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             } catch (let error) {
                 print("Auth sign out failed: \(error)")
             }
         }
     }
+    
     /*
     // MARK: - Navigation
 

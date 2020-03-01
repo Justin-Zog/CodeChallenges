@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VMY-vd-0OW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="11W-Vo-edU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -85,26 +85,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cfQ-Pf-4BD"/>
                     </view>
+                    <navigationItem key="navigationItem" id="3ie-Le-aGv"/>
                     <connections>
                         <outlet property="emailTextField" destination="Tde-km-fml" id="yvp-7Z-5CA"/>
                         <outlet property="passwordTextField" destination="wD0-Ed-Udv" id="0cJ-vi-O5A"/>
-                        <segue destination="Btc-CM-X6L" kind="show" identifier="toGameSelection" id="Hb7-NE-fkq"/>
+                        <segue destination="lS6-JW-8vS" kind="show" identifier="toGameSelection" id="puT-G9-d8o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4y-ZX-BEL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1200" y="47.544642857142854"/>
+            <point key="canvasLocation" x="620.28985507246387" y="47.544642857142854"/>
         </scene>
         <!--Game Selection View Controller-->
         <scene sceneID="0ce-aA-BXp">
             <objects>
                 <viewController id="lS6-JW-8vS" customClass="GameSelectionViewController" customModule="Casino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ptm-x2-M2d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLk-uL-Jgv">
-                                <rect key="frame" x="82" y="778" width="250" height="38"/>
+                                <rect key="frame" x="82" y="816" width="250" height="38"/>
                                 <color key="backgroundColor" red="0.87145766579999995" green="0.60219544169999994" blue="0.45486319069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="i9p-Yy-I7n"/>
@@ -114,14 +115,14 @@
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="signOutButtonTapped:" destination="lS6-JW-8vS" eventType="touchUpInside" id="XAh-Yi-KiY"/>
+                                    <action selector="signOutButtonTapped:" destination="lS6-JW-8vS" eventType="touchUpInside" id="e8H-ra-vPc"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.36862745099999999" green="0.61568627450000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="GLk-uL-Jgv" firstAttribute="centerX" secondItem="ptm-x2-M2d" secondAttribute="centerX" id="GIx-By-dcE"/>
-                            <constraint firstItem="GLk-uL-Jgv" firstAttribute="bottom" secondItem="VrG-rJ-cbz" secondAttribute="bottom" constant="8" id="H2n-qf-ezh"/>
+                            <constraint firstItem="VrG-rJ-cbz" firstAttribute="bottom" secondItem="GLk-uL-Jgv" secondAttribute="bottom" constant="8" id="NKE-cO-4JZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VrG-rJ-cbz"/>
                     </view>
@@ -129,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9TL-Gl-onQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637.68115942028987" y="47.544642857142854"/>
+            <point key="canvasLocation" x="1403" y="48"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zAA-rv-sOr">
@@ -144,26 +145,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnS-9f-mHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="48"/>
+            <point key="canvasLocation" x="2200" y="48"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ssK-cP-g88">
+        <scene sceneID="yC5-TA-NXx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Btc-CM-X6L" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="11W-Vo-edU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="vtn-8N-AUv"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fce-uF-g31">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9j8-EX-51Z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lS6-JW-8vS" kind="relationship" relationship="rootViewController" id="uFw-LG-4bx"/>
+                        <segue destination="VMY-vd-0OW" kind="relationship" relationship="rootViewController" id="avM-y9-C5E"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0W0-0D-qky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yzt-nJ-vbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-272.46376811594206" y="47.544642857142854"/>
+            <point key="canvasLocation" x="-143" y="48"/>
         </scene>
     </scenes>
 </document>
