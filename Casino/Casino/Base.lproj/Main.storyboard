@@ -240,19 +240,46 @@
                                     <constraint firstAttribute="height" constant="50" id="glh-L5-gv8"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="w1b-ei-ocF">
+                                <rect key="frame" x="16" y="104" width="382" height="298.5"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dhz-7v-JFa">
+                                <rect key="frame" x="16" y="418.5" width="382" height="299"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You bet X dollars" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-ah-fcH">
+                                <rect key="frame" x="16" y="725.5" width="382" height="70.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.36862745099999999" green="0.61568627450000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="e3H-5j-VXZ" firstAttribute="trailing" secondItem="dhz-7v-JFa" secondAttribute="trailing" constant="16" id="0Du-Vy-rDS"/>
+                            <constraint firstItem="w1b-ei-ocF" firstAttribute="height" secondItem="xFC-gd-lsu" secondAttribute="height" multiplier="1/3" id="SWz-rV-mTc"/>
+                            <constraint firstItem="e3H-5j-VXZ" firstAttribute="trailing" secondItem="w1b-ei-ocF" secondAttribute="trailing" constant="16" id="SjT-lB-bC5"/>
+                            <constraint firstItem="w1b-ei-ocF" firstAttribute="top" secondItem="e3H-5j-VXZ" secondAttribute="top" constant="16" id="TFI-ac-goZ"/>
+                            <constraint firstItem="dhz-7v-JFa" firstAttribute="height" secondItem="xFC-gd-lsu" secondAttribute="height" multiplier="1/3" id="XM4-fn-9GC"/>
                             <constraint firstItem="km6-Ua-NBK" firstAttribute="centerX" secondItem="xFC-gd-lsu" secondAttribute="centerX" id="acv-7f-drg"/>
+                            <constraint firstItem="w1b-ei-ocF" firstAttribute="leading" secondItem="e3H-5j-VXZ" secondAttribute="leading" constant="16" id="c38-YS-fNU"/>
+                            <constraint firstItem="km6-Ua-NBK" firstAttribute="top" secondItem="eXs-ah-fcH" secondAttribute="bottom" constant="8" id="cJr-sI-MgM"/>
+                            <constraint firstItem="eXs-ah-fcH" firstAttribute="leading" secondItem="e3H-5j-VXZ" secondAttribute="leading" constant="16" id="m6g-XK-x4h"/>
+                            <constraint firstItem="e3H-5j-VXZ" firstAttribute="trailing" secondItem="eXs-ah-fcH" secondAttribute="trailing" constant="16" id="miG-ez-SKQ"/>
+                            <constraint firstItem="dhz-7v-JFa" firstAttribute="leading" secondItem="e3H-5j-VXZ" secondAttribute="leading" constant="16" id="mid-mc-gW4"/>
+                            <constraint firstItem="eXs-ah-fcH" firstAttribute="top" secondItem="dhz-7v-JFa" secondAttribute="bottom" constant="8" id="qd8-fi-pML"/>
                             <constraint firstItem="e3H-5j-VXZ" firstAttribute="bottom" secondItem="km6-Ua-NBK" secondAttribute="bottom" constant="8" id="xG0-gz-Rk0"/>
+                            <constraint firstItem="dhz-7v-JFa" firstAttribute="top" secondItem="w1b-ei-ocF" secondAttribute="bottom" constant="16" id="zdh-8r-uYT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e3H-5j-VXZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="vG9-X1-Ib6"/>
                     <connections>
+                        <outlet property="dealersCardsView" destination="w1b-ei-ocF" id="31x-Cl-uEb"/>
                         <outlet property="hitMeButton" destination="GbV-z7-Bm8" id="0t6-qS-T4H"/>
                         <outlet property="playGameButton" destination="I9s-jC-Z3Y" id="01w-Gq-kGx"/>
+                        <outlet property="playersCardsView" destination="dhz-7v-JFa" id="9nO-xY-4ER"/>
                         <outlet property="standButton" destination="GuF-yh-TDN" id="iNN-hD-M80"/>
+                        <outlet property="youBetLabel" destination="eXs-ah-fcH" id="2bF-sJ-kiQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnS-9f-mHF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
