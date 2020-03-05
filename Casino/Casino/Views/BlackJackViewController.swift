@@ -32,8 +32,10 @@ class BlackJackViewController: UIViewController {
     
     var playerScoreWithAceAsOne: Int = 0
     var playerScoreWithAceAsEleven: Int = 0
+    var playerFinalScore: Int = 0
     var dealerScoreWithAceAsOne: Int = 0
     var dealerScoreWithAceAsEleven: Int = 0
+    var dealerFinalScore: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,13 +103,97 @@ class BlackJackViewController: UIViewController {
         if playerScoreWithAceAsOne == 21 || playerScoreWithAceAsEleven == 21 {
             setDealersScore()
             if dealerScoreWithAceAsOne == 21 || dealerScoreWithAceAsEleven == 21 {
-                // Give the player their chips back
+                for chip in betChips {
+                    // Gives the player chips their chips back
+                    if chip.key == "whiteChips" {
+                        guard var whiteChips = playersChips["whiteChips"] else { return }
+                        whiteChips += 1
+                        playersChips["whiteChips"] = whiteChips
+                    } else if chip.key == "redChips" {
+                        guard var redChips = playersChips["redChips"] else { return }
+                        redChips += 1
+                        playersChips["redChips"] = redChips
+                    } else if chip.key == "blueChips" {
+                        guard var blueChips = playersChips["blueChips"] else { return }
+                        blueChips += 1
+                        playersChips["blueChips"] = blueChips
+                    } else if chip.key == "greenChips" {
+                        guard var greenChips = playersChips["greenChips"] else { return }
+                        greenChips += 1
+                        playersChips["greenChips"] = greenChips
+                    } else if chip.key == "blackChips" {
+                        guard var blackChips = playersChips["blackChips"] else { return }
+                        blackChips += 1
+                        playersChips["blackChips"] = blackChips
+                    } else if chip.key == "purpleChips" {
+                        guard var purpleChips = playersChips["purpleChips"] else { return }
+                        purpleChips += 1
+                        playersChips["purpleChips"] = purpleChips
+                    } else if chip.key == "yellowChips" {
+                        guard var yellowChips = playersChips["yellowChips"] else { return }
+                        yellowChips += 1
+                        playersChips["yellowChips"] = yellowChips
+                    } else if chip.key == "pinkChips" {
+                        guard var pinkChips = playersChips["pinkChips"] else { return }
+                        pinkChips += 1
+                        playersChips["pinkChips"] = pinkChips
+                    } else if chip.key == "orangeChips" {
+                        guard var orangeChips = playersChips["orangeChips"] else { return }
+                        orangeChips += 1
+                        playersChips["orangeChips"] = orangeChips
+                    }
+                }
+                
+                // Resets the betChips
+                betChips.removeAll()
                 
             // The dealers hand isn't a blackjack
             } else {
                 // Give the player what they bet times two back (2:1) ratio and what they bet
-                
+                for chip in betChips {
+                    // Gives the player chips their chips back
+                    if chip.key == "whiteChips" {
+                        guard var whiteChips = playersChips["whiteChips"] else { return }
+                        whiteChips += 3
+                        playersChips["whiteChips"] = whiteChips
+                    } else if chip.key == "redChips" {
+                        guard var redChips = playersChips["redChips"] else { return }
+                        redChips += 3
+                        playersChips["redChips"] = redChips
+                    } else if chip.key == "blueChips" {
+                        guard var blueChips = playersChips["blueChips"] else { return }
+                        blueChips += 3
+                        playersChips["blueChips"] = blueChips
+                    } else if chip.key == "greenChips" {
+                        guard var greenChips = playersChips["greenChips"] else { return }
+                        greenChips += 3
+                        playersChips["greenChips"] = greenChips
+                    } else if chip.key == "blackChips" {
+                        guard var blackChips = playersChips["blackChips"] else { return }
+                        blackChips += 3
+                        playersChips["blackChips"] = blackChips
+                    } else if chip.key == "purpleChips" {
+                        guard var purpleChips = playersChips["purpleChips"] else { return }
+                        purpleChips += 3
+                        playersChips["purpleChips"] = purpleChips
+                    } else if chip.key == "yellowChips" {
+                        guard var yellowChips = playersChips["yellowChips"] else { return }
+                        yellowChips += 3
+                        playersChips["yellowChips"] = yellowChips
+                    } else if chip.key == "pinkChips" {
+                        guard var pinkChips = playersChips["pinkChips"] else { return }
+                        pinkChips += 3
+                        playersChips["pinkChips"] = pinkChips
+                    } else if chip.key == "orangeChips" {
+                        guard var orangeChips = playersChips["orangeChips"] else { return }
+                        orangeChips += 3
+                        playersChips["orangeChips"] = orangeChips
+                    }
+                }
+                // Resets the betChips
+                betChips.removeAll()
             }
+            resetGraphics()
         }
     }
     
@@ -185,8 +271,8 @@ class BlackJackViewController: UIViewController {
         // The dealers score is above 17 but less than 21 with their ace as an eleven, dealer holds
         if dealerScoreWithAceAsEleven >= 17 && dealerScoreWithAceAsEleven < 21 {
             // Check who wins, pay out, and reset graphics
+            dealerFinalScore = dealerScoreWithAceAsEleven
             payOut()
-            resetGraphics()
             
         // The dealers score is less than 17, they must draw a card
         } else if dealerScoreWithAceAsOne < 17 && dealerScoreWithAceAsEleven < 17 {
@@ -202,14 +288,15 @@ class BlackJackViewController: UIViewController {
         // The dealers busts, if the player did not bust, they win
         } else if dealerScoreWithAceAsOne > 21 && dealerScoreWithAceAsEleven > 21 {
             // Payout should always go to the player here because if they did bust, dealers logic never gets run
+            // Set the dealersScore as zero, that way any card beats it because the dealer busts
+            dealerFinalScore = 0
             payOut()
-            resetGraphics()
             
         // The dealers score with the ace as an eleven is a bust, but the dealers score with the ace as a one is between 17 and 21
         } else if dealerScoreWithAceAsEleven > 21 && dealerScoreWithAceAsOne > 16 && dealerScoreWithAceAsOne < 22{
             // Check who wins, pay out, and reset graphics
+            dealerFinalScore = dealerScoreWithAceAsOne
             payOut()
-            resetGraphics()
             
         // The dealers score with the ace as an eleven is a bust, but the dealers score with the ace as a one is not and also below 17, dealer must draw a card
         } else if dealerScoreWithAceAsEleven > 21 && dealerScoreWithAceAsOne < 17 {
@@ -226,12 +313,111 @@ class BlackJackViewController: UIViewController {
     
     // Sees if the dealer or player wins, then takes and gives chips accordingly
     func payOut() {
-        
+        if dealerFinalScore > playerFinalScore {
+            // Take the players bet
+            betChips.removeAll()
+        } else if dealerFinalScore < playerFinalScore {
+            // Give the player money
+            for chip in betChips {
+                // Gives the player chips their chips back
+                if chip.key == "whiteChips" {
+                    guard var whiteChips = playersChips["whiteChips"] else { return }
+                    whiteChips += 2
+                    playersChips["whiteChips"] = whiteChips
+                } else if chip.key == "redChips" {
+                    guard var redChips = playersChips["redChips"] else { return }
+                    redChips += 2
+                    playersChips["redChips"] = redChips
+                } else if chip.key == "blueChips" {
+                    guard var blueChips = playersChips["blueChips"] else { return }
+                    blueChips += 2
+                    playersChips["blueChips"] = blueChips
+                } else if chip.key == "greenChips" {
+                    guard var greenChips = playersChips["greenChips"] else { return }
+                    greenChips += 2
+                    playersChips["greenChips"] = greenChips
+                } else if chip.key == "blackChips" {
+                    guard var blackChips = playersChips["blackChips"] else { return }
+                    blackChips += 2
+                    playersChips["blackChips"] = blackChips
+                } else if chip.key == "purpleChips" {
+                    guard var purpleChips = playersChips["purpleChips"] else { return }
+                    purpleChips += 2
+                    playersChips["purpleChips"] = purpleChips
+                } else if chip.key == "yellowChips" {
+                    guard var yellowChips = playersChips["yellowChips"] else { return }
+                    yellowChips += 2
+                    playersChips["yellowChips"] = yellowChips
+                } else if chip.key == "pinkChips" {
+                    guard var pinkChips = playersChips["pinkChips"] else { return }
+                    pinkChips += 2
+                    playersChips["pinkChips"] = pinkChips
+                } else if chip.key == "orangeChips" {
+                    guard var orangeChips = playersChips["orangeChips"] else { return }
+                    orangeChips += 2
+                    playersChips["orangeChips"] = orangeChips
+                }
+            }
+            
+            // Resets the betChips
+            betChips.removeAll()
+        } else if dealerFinalScore == playerFinalScore {
+            // Give the players bet back
+            for chip in betChips {
+                // Gives the player chips their chips back
+                if chip.key == "whiteChips" {
+                    guard var whiteChips = playersChips["whiteChips"] else { return }
+                    whiteChips += 1
+                    playersChips["whiteChips"] = whiteChips
+                } else if chip.key == "redChips" {
+                    guard var redChips = playersChips["redChips"] else { return }
+                    redChips += 1
+                    playersChips["redChips"] = redChips
+                } else if chip.key == "blueChips" {
+                    guard var blueChips = playersChips["blueChips"] else { return }
+                    blueChips += 1
+                    playersChips["blueChips"] = blueChips
+                } else if chip.key == "greenChips" {
+                    guard var greenChips = playersChips["greenChips"] else { return }
+                    greenChips += 1
+                    playersChips["greenChips"] = greenChips
+                } else if chip.key == "blackChips" {
+                    guard var blackChips = playersChips["blackChips"] else { return }
+                    blackChips += 1
+                    playersChips["blackChips"] = blackChips
+                } else if chip.key == "purpleChips" {
+                    guard var purpleChips = playersChips["purpleChips"] else { return }
+                    purpleChips += 1
+                    playersChips["purpleChips"] = purpleChips
+                } else if chip.key == "yellowChips" {
+                    guard var yellowChips = playersChips["yellowChips"] else { return }
+                    yellowChips += 1
+                    playersChips["yellowChips"] = yellowChips
+                } else if chip.key == "pinkChips" {
+                    guard var pinkChips = playersChips["pinkChips"] else { return }
+                    pinkChips += 1
+                    playersChips["pinkChips"] = pinkChips
+                } else if chip.key == "orangeChips" {
+                    guard var orangeChips = playersChips["orangeChips"] else { return }
+                    orangeChips += 1
+                    playersChips["orangeChips"] = orangeChips
+                }
+            }
+            
+            // Resets the betChips
+            betChips.removeAll()
+        }
+        resetGraphics()
     }
     
     // Resets the graphics to the original view, this will be used when a player busts
     func resetGraphics() {
-        
+        playGameButton.isHidden = false
+        playGameButton.isEnabled = true
+        hitMeButton.isHidden = true
+        hitMeButton.isEnabled = false
+        standButton.isHidden = true
+        standButton.isEnabled = false
     }
     
     // Call this function when the play button gets tapped, this will essentially start the game
@@ -317,6 +503,9 @@ class BlackJackViewController: UIViewController {
             self.hitMeButton.isEnabled = true
             self.standButton.isHidden = false
             self.standButton.isEnabled = true
+            
+            // Deal the cards out
+            self.dealCards()
         }))
         
         betAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -334,8 +523,11 @@ class BlackJackViewController: UIViewController {
         // The player busts, game ends
         if playerScoreWithAceAsOne > 21 && playerScoreWithAceAsEleven > 21 {
             // Make an animation that says they bust, take their chips, and reset the game
+            let bustAlert = UIAlertController(title: "Oh no!", message: "It looks like you bust with a score of \(playerScoreWithAceAsOne)", preferredStyle: .alert)
             
+            bustAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
             
+            betChips.removeAll()
             
             resetGraphics()
         }
@@ -345,6 +537,17 @@ class BlackJackViewController: UIViewController {
     
     // This means that it is now the dealers turn, code the logic for the dealer in here
     @IBAction func standTapped(_ sender: Any) {
+        
+        // Set the players final score then run dealersLogic()
+        // The player cannot have a bust in here
+        // If the playerScoreWithAceAsEleven is less than 21 so will playerScoreWithAceAsOne
+        if playerScoreWithAceAsEleven < 22 {
+            playerFinalScore = playerScoreWithAceAsEleven
+            
+        // The playerScoreWithAceAsEleven is above 21 so playerScoreWithAceAsOne cannot be over 21
+        } else if playerScoreWithAceAsEleven > 21 {
+            playerFinalScore = playerScoreWithAceAsOne
+        }
         
         dealersLogic()
         

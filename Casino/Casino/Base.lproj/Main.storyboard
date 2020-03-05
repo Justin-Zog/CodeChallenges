@@ -118,15 +118,6 @@
                                     <action selector="signOutButtonTapped:" destination="lS6-JW-8vS" eventType="touchUpInside" id="e8H-ra-vPc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-MY-Nky">
-                                <rect key="frame" x="8" y="96" width="398" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="rL7-DE-sSN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fp2-TL-iLa">
                                 <rect key="frame" x="8" y="150" width="120" height="50"/>
                                 <color key="backgroundColor" red="0.38567948340000002" green="0.64099395280000004" blue="0.50194388629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -143,16 +134,39 @@
                                     <segue destination="DWU-AH-mWN" kind="show" identifier="toBlackJack" id="zl2-5A-DfC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-MY-Nky">
+                                <rect key="frame" x="8" y="96" width="398" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rL7-DE-sSN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeW-DM-1bX">
+                                <rect key="frame" x="8" y="746" width="120" height="50"/>
+                                <color key="backgroundColor" red="0.38567948340000002" green="0.64099395280000004" blue="0.50194388629999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OVi-Ug-UIL"/>
+                                    <constraint firstAttribute="width" constant="120" id="vII-Ie-DNK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <state key="normal" title="Exchange Chips">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.36862745099999999" green="0.61568627450000002" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Fp2-TL-iLa" firstAttribute="top" secondItem="5Fo-MY-Nky" secondAttribute="bottom" constant="4" id="0rT-Gi-irD"/>
                             <constraint firstItem="VrG-rJ-cbz" firstAttribute="trailing" secondItem="5Fo-MY-Nky" secondAttribute="trailing" constant="8" id="54Q-93-UyZ"/>
+                            <constraint firstItem="PeW-DM-1bX" firstAttribute="leading" secondItem="VrG-rJ-cbz" secondAttribute="leading" constant="8" id="Bah-1M-rc5"/>
                             <constraint firstItem="GLk-uL-Jgv" firstAttribute="centerX" secondItem="ptm-x2-M2d" secondAttribute="centerX" id="GIx-By-dcE"/>
                             <constraint firstItem="VrG-rJ-cbz" firstAttribute="bottom" secondItem="GLk-uL-Jgv" secondAttribute="bottom" constant="8" id="NKE-cO-4JZ"/>
                             <constraint firstItem="5Fo-MY-Nky" firstAttribute="leading" secondItem="VrG-rJ-cbz" secondAttribute="leading" constant="8" id="ewc-hc-KJv"/>
                             <constraint firstItem="5Fo-MY-Nky" firstAttribute="top" secondItem="VrG-rJ-cbz" secondAttribute="top" constant="8" id="mXk-Ha-CwV"/>
                             <constraint firstItem="Fp2-TL-iLa" firstAttribute="leading" secondItem="VrG-rJ-cbz" secondAttribute="leading" constant="8" id="vvJ-1p-EhD"/>
+                            <constraint firstItem="GLk-uL-Jgv" firstAttribute="top" secondItem="PeW-DM-1bX" secondAttribute="bottom" constant="20" id="xpx-vf-n23"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VrG-rJ-cbz"/>
                     </view>
