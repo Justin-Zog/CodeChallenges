@@ -220,7 +220,6 @@ class BlackJackViewController: UIViewController {
                 // Resets the betChips
                 betChips.removeAll()
             }
-            resetGraphics()
         }
     }
     
@@ -352,6 +351,9 @@ class BlackJackViewController: UIViewController {
             setCardImages()
             // Runs the function again to see if the dealer busts
             dealersLogic()
+        } else if dealerScoreWithAceAsEleven == 21 || dealerScoreWithAceAsOne == 21 {
+            dealerFinalScore = 21
+            payOut()
         }
     }
     
@@ -473,7 +475,16 @@ class BlackJackViewController: UIViewController {
             // Resets the betChips
             betChips.removeAll()
         }
-        resetGraphics()
+        
+        // Half Resets the graphics
+        playGameButton.isHidden = false
+        playGameButton.isEnabled = true
+        hitMeButton.isHidden = true
+        hitMeButton.isEnabled = false
+        standButton.isHidden = true
+        standButton.isEnabled = false
+        youBetLabel.isHidden = true
+        
     }
     
     // Resets the graphics to the original view, this will be used when a player busts
@@ -1067,6 +1078,12 @@ class BlackJackViewController: UIViewController {
     // Call this function when the play button gets tapped, this will essentially start the game
     @IBAction func playGameButtonTapped(_ sender: Any) {
         
+        // Resets the graphics
+        resetGraphics()
+        playGameButton.isHidden = true
+        playGameButton.isEnabled = false
+
+        
         // This function needs to ask for a bet and deal the cards out afterwards
         guard let username = username else { print("The username was not there"); return }
         let betAlert = UIAlertController(title: ("Welcome, " + username), message: "How many chips do you wish to bet?", preferredStyle: .alert)
@@ -1129,9 +1146,11 @@ class BlackJackViewController: UIViewController {
             var numPinkChips = 0
             var numOrangeChips = 0
             
+            var numberOfTextfields = 0
             // Get the chips they bet from the text field
             if self.playersChips["whiteChips"] != 0 {
-                 guard let whiteChipsTextField = betAlert.textFields?[0], let whiteChips = whiteChipsTextField.text else { print("Failed to get whiteChips bet"); return }
+                 guard let whiteChipsTextField = betAlert.textFields?[numberOfTextfields], let whiteChips = whiteChipsTextField.text else { print("Failed to get whiteChips bet"); return }
+                numberOfTextfields += 1
                 if let integerWhiteChips = Int(whiteChips) {
                     numWhiteChips = integerWhiteChips
                 } else {
@@ -1139,7 +1158,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["redChips"] != 0 {
-                guard let redChipsTextField = betAlert.textFields?[1], let redChips = redChipsTextField.text else { print("Failed to get redChips bet"); return }
+                guard let redChipsTextField = betAlert.textFields?[numberOfTextfields], let redChips = redChipsTextField.text else { print("Failed to get redChips bet"); return }
+                numberOfTextfields += 1
                 if let integerRedChips = Int(redChips) {
                     numRedChips = integerRedChips
                 } else {
@@ -1147,7 +1167,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["blueChips"] != 0 {
-                guard let blueChipsTextField = betAlert.textFields?[2], let blueChips = blueChipsTextField.text else { print("Failed to get blueChips bet"); return }
+                guard let blueChipsTextField = betAlert.textFields?[numberOfTextfields], let blueChips = blueChipsTextField.text else { print("Failed to get blueChips bet"); return }
+                numberOfTextfields += 1
                 if let integerBlueChips = Int(blueChips) {
                     numBlueChips = integerBlueChips
                 } else {
@@ -1155,7 +1176,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["greenChips"] != 0 {
-                guard let greenChipsTextField = betAlert.textFields?[3], let greenChips = greenChipsTextField.text else { print("Failed to get greenChips bet"); return }
+                guard let greenChipsTextField = betAlert.textFields?[numberOfTextfields], let greenChips = greenChipsTextField.text else { print("Failed to get greenChips bet"); return }
+                numberOfTextfields += 1
                 if let integerGreenChips = Int(greenChips) {
                     numGreenChips = integerGreenChips
                 } else {
@@ -1164,7 +1186,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["blackChips"] != 0 {
-                guard let blackChipsTextField = betAlert.textFields?[4], let blackChips = blackChipsTextField.text else { print("Failed to get blackChips bet"); return }
+                guard let blackChipsTextField = betAlert.textFields?[numberOfTextfields], let blackChips = blackChipsTextField.text else { print("Failed to get blackChips bet"); return }
+                numberOfTextfields += 1
                 if let integerBlackChips = Int(blackChips) {
                     numBlackChips = integerBlackChips
                 } else {
@@ -1172,7 +1195,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["purpleChips"] != 0 {
-                guard let purpleChipsTextField = betAlert.textFields?[5], let purpleChips = purpleChipsTextField.text else { print("Failed to get purpleChips bet"); return }
+                guard let purpleChipsTextField = betAlert.textFields?[numberOfTextfields], let purpleChips = purpleChipsTextField.text else { print("Failed to get purpleChips bet"); return }
+                numberOfTextfields += 1
                 if let integerPurpleChips = Int(purpleChips) {
                     numPurpleChips = integerPurpleChips
                 } else {
@@ -1180,7 +1204,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["yellowChips"] != 0 {
-                guard let yellowChipsTextField = betAlert.textFields?[6], let yellowChips = yellowChipsTextField.text else { print("Failed to get yellowChips bet"); return }
+                guard let yellowChipsTextField = betAlert.textFields?[numberOfTextfields], let yellowChips = yellowChipsTextField.text else { print("Failed to get yellowChips bet"); return }
+                numberOfTextfields += 1
                 if let integerYellowChips = Int(yellowChips) {
                     numYellowChips = integerYellowChips
                 } else {
@@ -1188,7 +1213,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["pinkChips"] != 0 {
-                guard let pinkChipsTextField = betAlert.textFields?[7], let pinkChips = pinkChipsTextField.text else { print("Failed to get pinkChips bet"); return }
+                guard let pinkChipsTextField = betAlert.textFields?[numberOfTextfields], let pinkChips = pinkChipsTextField.text else { print("Failed to get pinkChips bet"); return }
+                numberOfTextfields += 1
                 if let integerPinkChips = Int(pinkChips) {
                     numPinkChips = integerPinkChips
                 } else {
@@ -1196,7 +1222,8 @@ class BlackJackViewController: UIViewController {
                 }
             }
             if self.playersChips["orangeChips"] != 0 {
-                guard let orangeChipsTextField = betAlert.textFields?[8], let orangeChips = orangeChipsTextField.text else { print("Failed to get orangeChips bet"); return }
+                guard let orangeChipsTextField = betAlert.textFields?[numberOfTextfields], let orangeChips = orangeChipsTextField.text else { print("Failed to get orangeChips bet"); return }
+                numberOfTextfields += 1
                 if let integerOrangeChips = Int(orangeChips) {
                     numOrangeChips = integerOrangeChips
                 } else {
@@ -1319,9 +1346,16 @@ class BlackJackViewController: UIViewController {
             
             self.present(bustAlert, animated: true, completion: nil)
             
+            playGameButton.isHidden = false
+            playGameButton.isEnabled = true
+            hitMeButton.isHidden = true
+            hitMeButton.isEnabled = false
+            standButton.isHidden = true
+            standButton.isEnabled = false
+            youBetLabel.isHidden = true
+            
             betChips.removeAll()
             
-            resetGraphics()
         }
         
         
