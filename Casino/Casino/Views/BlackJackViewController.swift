@@ -508,261 +508,287 @@ class BlackJackViewController: UIViewController {
             case "1D":
                 let aceDiamondsImage = UIImage(named: "AceOfDiamonds")
                 let aceDiamondsImageView = UIImageView(image: aceDiamondsImage)
+                aceDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(aceDiamondsImageView)
                 aceDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2D":
                 let twoDiamondsImage = UIImage(named: "TwoOfDiamonds")
                 let twoDiamondsImageView = UIImageView(image: twoDiamondsImage)
+                twoDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(twoDiamondsImageView)
                 twoDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3D":
                 let threeDiamondsImage = UIImage(named: "ThreeOfDiamonds")
                 let threeDiamondsImageView = UIImageView(image: threeDiamondsImage)
+                threeDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(threeDiamondsImageView)
                 threeDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4D":
                 let fourDiamondsImage = UIImage(named: "FourOfDiamonds")
                 let fourDiamondsImageView = UIImageView(image: fourDiamondsImage)
+                fourDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(fourDiamondsImageView)
                 fourDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5D":
                 let fiveDiamondsImage = UIImage(named: "FiveOfDiamonds")
                 let fiveDiamondsImageView = UIImageView(image: fiveDiamondsImage)
+                fiveDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(fiveDiamondsImageView)
                 fiveDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6D":
                 let sixDiamondsImage = UIImage(named: "SixOfDiamonds")
                 let sixDiamondsImageView = UIImageView(image: sixDiamondsImage)
+                sixDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(sixDiamondsImageView)
                 sixDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7D":
                 let sevenDiamondsImage = UIImage(named: "SevenOfDiamonds")
                 let sevenDiamondsImageView = UIImageView(image: sevenDiamondsImage)
+                sevenDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(sevenDiamondsImageView)
                 sevenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8D":
                 let eightDiamondsImage = UIImage(named: "EightOfDiamonds")
                 let eightDiamondsImageView = UIImageView(image: eightDiamondsImage)
+                eightDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(eightDiamondsImageView)
                 eightDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9D":
                 let nineDiamondsImage = UIImage(named: "NineOfDiamonds")
                 let nineDiamondsImageView = UIImageView(image: nineDiamondsImage)
+                nineDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(nineDiamondsImageView)
                 nineDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10D":
                 let tenDiamondsImage = UIImage(named: "TenOfDiamonds")
                 let tenDiamondsImageView = UIImageView(image: tenDiamondsImage)
+                tenDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(tenDiamondsImageView)
                 tenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11D":
                 let elevenDiamondsImage = UIImage(named: "JackOfDiamonds")
                 let elevenDiamondsImageView = UIImageView(image: elevenDiamondsImage)
+                elevenDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(elevenDiamondsImageView)
                 elevenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12D":
                 let twelveDiamondsImage = UIImage(named: "QueenOfDiamonds")
                 let twelveDiamondsImageView = UIImageView(image: twelveDiamondsImage)
+                twelveDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(twelveDiamondsImageView)
                 twelveDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13D":
                 let thirteenDiamondsImage = UIImage(named: "KingOfDiamonds")
                 let thirteenDiamondsImageView = UIImageView(image: thirteenDiamondsImage)
+                thirteenDiamondsImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(thirteenDiamondsImageView)
                 thirteenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1H":
                 let oneHeartImage = UIImage(named: "AceOfHearts")
                 let oneHeartImageView = UIImageView(image: oneHeartImage)
+                oneHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(oneHeartImageView)
                 oneHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2H":
                 let twoHeartImage = UIImage(named: "TwoOfHearts")
                 let twoHeartImageView = UIImageView(image: twoHeartImage)
+                twoHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(twoHeartImageView)
                 twoHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3H":
                 let threeHeartImage = UIImage(named: "ThreeOfHearts")
                 let threeHeartImageView = UIImageView(image: threeHeartImage)
+                threeHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(threeHeartImageView)
                 threeHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4H":
                 let fourHeartImage = UIImage(named: "FourOfHearts")
                 let fourHeartImageView = UIImageView(image: fourHeartImage)
+                fourHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(fourHeartImageView)
                 fourHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5H":
                 let fiveHeartImage = UIImage(named: "FiveOfHearts")
                 let fiveHeartImageView = UIImageView(image: fiveHeartImage)
+                fiveHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(fiveHeartImageView)
                 fiveHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6H":
                 let sixHeartImage = UIImage(named: "SixOfHearts")
                 let sixHeartImageView = UIImageView(image: sixHeartImage)
+                sixHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(sixHeartImageView)
                 sixHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7H":
                 let sevenHeartImage = UIImage(named: "SevenOfHearts")
                 let sevenHeartImageView = UIImageView(image: sevenHeartImage)
+                sevenHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(sevenHeartImageView)
                 sevenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8H":
                 let eightHeartImage = UIImage(named: "EightOfHearts")
                 let eightHeartImageView = UIImageView(image: eightHeartImage)
+                eightHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(eightHeartImageView)
                 eightHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9H":
                 let nineHeartImage = UIImage(named: "NineOfHearts")
                 let nineHeartImageView = UIImageView(image: nineHeartImage)
+                nineHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(nineHeartImageView)
                 nineHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10H":
                 let tenHeartImage = UIImage(named: "TenOfHearts")
                 let tenHeartImageView = UIImageView(image: tenHeartImage)
+                tenHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(tenHeartImageView)
                 tenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11H":
                 let elevenHeartImage = UIImage(named: "JackOfHearts")
                 let elevenHeartImageView = UIImageView(image: elevenHeartImage)
+                elevenHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(elevenHeartImageView)
                 elevenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12H":
                 let twelveHeartImage = UIImage(named: "QueenOfHearts")
                 let twelveHeartImageView = UIImageView(image: twelveHeartImage)
+                twelveHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(twelveHeartImageView)
                 twelveHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13H":
                 let thirteenHeartImage = UIImage(named: "KingOfHearts")
                 let thirteenHeartImageView = UIImageView(image: thirteenHeartImage)
+                thirteenHeartImageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(thirteenHeartImageView)
                 thirteenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1S":
                 let image = UIImage(named: "AceOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2S":
                 let image = UIImage(named: "TwoOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3S":
                 let image = UIImage(named: "ThreeOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4S":
                 let image = UIImage(named: "FourOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5S":
                 let image = UIImage(named: "FiveOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6S":
                 let image = UIImage(named: "SixOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7S":
                 let image = UIImage(named: "SevenOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8S":
                 let image = UIImage(named: "EightOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9S":
                 let image = UIImage(named: "NineOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10S":
                 let image = UIImage(named: "TenOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11S":
                 let image = UIImage(named: "JackOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12S":
                 let image = UIImage(named: "QueenOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13S":
                 let image = UIImage(named: "KingOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1C":
                 let image = UIImage(named: "AceOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2C":
                 let image = UIImage(named: "TwoOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3C":
                 let image = UIImage(named: "ThreeOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4C":
                 let image = UIImage(named: "FourOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5C":
                 let image = UIImage(named: "FiveOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6C":
                 let image = UIImage(named: "SixOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7C":
                 let image = UIImage(named: "SevenOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8C":
                 let image = UIImage(named: "EightOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9C":
                 let image = UIImage(named: "NineOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10C":
                 let image = UIImage(named: "TenOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11C":
                 let image = UIImage(named: "JackOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12C":
                 let image = UIImage(named: "QueenOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13C":
                 let image = UIImage(named: "KingOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             default:
@@ -773,262 +799,262 @@ class BlackJackViewController: UIViewController {
             switch card {
             case "1D":
                 let image = UIImage(named: "AceOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2D":
                 let image = UIImage(named: "TwoOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3D":
                 let image = UIImage(named: "ThreeOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4D":
                 let image = UIImage(named: "FourOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5D":
                 let image = UIImage(named: "FiveOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6D":
                 let image = UIImage(named: "SixOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7D":
                 let image = UIImage(named: "SevenOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8D":
                 let image = UIImage(named: "EightOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9D":
                 let image = UIImage(named: "NineOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10D":
                 let image = UIImage(named: "TenOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11D":
                 let image = UIImage(named: "JackOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12D":
                 let image = UIImage(named: "QueenOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13D":
                 let image = UIImage(named: "KingOfDiamonds")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1H":
                 let image = UIImage(named: "AceOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2H":
                 let image = UIImage(named: "TwoOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3H":
                 let image = UIImage(named: "ThreeOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4H":
                 let image = UIImage(named: "FourOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5H":
                 let image = UIImage(named: "FiveOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6H":
                 let image = UIImage(named: "SixOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7H":
                 let image = UIImage(named: "SevenOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8H":
                 let image = UIImage(named: "EightOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9H":
                 let image = UIImage(named: "NineOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10H":
                 let image = UIImage(named: "TenOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11H":
                 let image = UIImage(named: "JackOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12H":
                 let image = UIImage(named: "QueenOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13H":
                 let image = UIImage(named: "KingOfHearts")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1S":
                 let image = UIImage(named: "AceOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2S":
                 let image = UIImage(named: "TwoOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3S":
                 let image = UIImage(named: "ThreeOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4S":
                 let image = UIImage(named: "FourOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5S":
                 let image = UIImage(named: "FiveOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6S":
                 let image = UIImage(named: "SixOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7S":
                 let image = UIImage(named: "SevenOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8S":
                 let image = UIImage(named: "EightOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9S":
                 let image = UIImage(named: "NineOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10S":
                 let image = UIImage(named: "TenOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11S":
                 let image = UIImage(named: "JackOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12S":
                 let image = UIImage(named: "QueenOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13S":
                 let image = UIImage(named: "KingOfSpades")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1C":
                 let image = UIImage(named: "AceOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2C":
                 let image = UIImage(named: "TwoOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3C":
                 let image = UIImage(named: "ThreeOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4C":
                 let image = UIImage(named: "FourOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5C":
                 let image = UIImage(named: "FiveOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6C":
                 let image = UIImage(named: "SixOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7C":
                 let image = UIImage(named: "SevenOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8C":
                 let image = UIImage(named: "EightOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9C":
                 let image = UIImage(named: "NineOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10C":
                 let image = UIImage(named: "TenOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11C":
                 let image = UIImage(named: "JackOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12C":
                 let image = UIImage(named: "QueenOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13C":
                 let image = UIImage(named: "KingOfClubs")
-                let imageView = UIImageView(image: image)
+                let imageView = UIImageView(image: image); imageView.contentMode = .scaleAspectFit
                 dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             default:
@@ -1282,8 +1308,6 @@ class BlackJackViewController: UIViewController {
         
         // Sets the players score
         setPlayersScore()
-        print(playersCards)
-        print(playerScoreWithAceAsOne)
         
         // The game ends only if the player's hand is above 21
         // The player busts, game ends
