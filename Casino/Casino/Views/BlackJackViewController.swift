@@ -114,44 +114,52 @@ class BlackJackViewController: UIViewController {
         if playerScoreWithAceAsOne == 21 || playerScoreWithAceAsEleven == 21 {
             setDealersScore()
             if dealerScoreWithAceAsOne == 21 || dealerScoreWithAceAsEleven == 21 {
+                // Adds an alert telling the player they tied with the dealer
+                let tieAlert = UIAlertController(title: "Meh", message: "You tied with the dealer!", preferredStyle: .alert)
+                
+                tieAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                
+                self.present(tieAlert, animated: true, completion: nil)
+                
+                // Give the players bet back
                 for chip in betChips {
                     // Gives the player chips their chips back
                     if chip.key == "whiteChips" {
-                        guard var whiteChips = playersChips["whiteChips"] else { return }
-                        whiteChips += 1
-                        playersChips["whiteChips"] = whiteChips
+                        guard let whiteChips = betChips["whiteChips"] else { return }
+                        let totalWhiteChips = (1 * whiteChips) + playersChips["whiteChips"]!
+                        playersChips["whiteChips"] = totalWhiteChips
                     } else if chip.key == "redChips" {
-                        guard var redChips = playersChips["redChips"] else { return }
-                        redChips += 1
-                        playersChips["redChips"] = redChips
+                        guard let redChips = betChips["redChips"] else { return }
+                        let totalRedChips = (1 * redChips) + playersChips["redChips"]!
+                        playersChips["redChips"] = totalRedChips
                     } else if chip.key == "blueChips" {
-                        guard var blueChips = playersChips["blueChips"] else { return }
-                        blueChips += 1
-                        playersChips["blueChips"] = blueChips
+                        guard let blueChips = betChips["blueChips"] else { return }
+                        let totalBlueChips = (1 * blueChips) + playersChips["blueChips"]!
+                        playersChips["blueChips"] = totalBlueChips
                     } else if chip.key == "greenChips" {
-                        guard var greenChips = playersChips["greenChips"] else { return }
-                        greenChips += 1
-                        playersChips["greenChips"] = greenChips
+                        guard let greenChips = betChips["greenChips"] else { return }
+                        let totalGreenChips = (1 * greenChips) + playersChips["greenChips"]!
+                        playersChips["greenChips"] = totalGreenChips
                     } else if chip.key == "blackChips" {
-                        guard var blackChips = playersChips["blackChips"] else { return }
-                        blackChips += 1
-                        playersChips["blackChips"] = blackChips
+                        guard let blackChips = betChips["blackChips"] else { return }
+                        let totalBlackChips = (1 * blackChips) + playersChips["blackChips"]!
+                        playersChips["blackChips"] = totalBlackChips
                     } else if chip.key == "purpleChips" {
-                        guard var purpleChips = playersChips["purpleChips"] else { return }
-                        purpleChips += 1
-                        playersChips["purpleChips"] = purpleChips
+                        guard let purpleChips = betChips["purpleChips"] else { return }
+                        let totalPurpleChips = (1 * purpleChips) + playersChips["purpleChips"]!
+                        playersChips["purpleChips"] = totalPurpleChips
                     } else if chip.key == "yellowChips" {
-                        guard var yellowChips = playersChips["yellowChips"] else { return }
-                        yellowChips += 1
-                        playersChips["yellowChips"] = yellowChips
+                        guard let yellowChips = betChips["yellowChips"] else { return }
+                        let totalYellowChips = (1 * yellowChips) + playersChips["yellowChips"]!
+                        playersChips["yellowChips"] = totalYellowChips
                     } else if chip.key == "pinkChips" {
-                        guard var pinkChips = playersChips["pinkChips"] else { return }
-                        pinkChips += 1
-                        playersChips["pinkChips"] = pinkChips
+                        guard let pinkChips = betChips["pinkChips"] else { return }
+                        let totalPinkChips = (1 * pinkChips) + playersChips["pinkChips"]!
+                        playersChips["pinkChips"] = totalPinkChips
                     } else if chip.key == "orangeChips" {
-                        guard var orangeChips = playersChips["orangeChips"] else { return }
-                        orangeChips += 1
-                        playersChips["orangeChips"] = orangeChips
+                        guard let orangeChips = betChips["orangeChips"] else { return }
+                        let totalOrangeChips = (1 * orangeChips) + playersChips["orangeChips"]!
+                        playersChips["orangeChips"] = totalOrangeChips
                     }
                 }
                 
@@ -160,47 +168,55 @@ class BlackJackViewController: UIViewController {
                 
             // The dealers hand isn't a blackjack
             } else {
+                // Adds an alert telling the player they got a blackjack
+                let tieAlert = UIAlertController(title: "Awesome!", message: "You got a blackjack!", preferredStyle: .alert)
+                
+                tieAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                
+                self.present(tieAlert, animated: true, completion: nil)
+                
                 // Give the player what they bet times two back (2:1) ratio and what they bet
                 for chip in betChips {
                     // Gives the player chips their chips back
                     if chip.key == "whiteChips" {
-                        guard var whiteChips = playersChips["whiteChips"] else { return }
-                        whiteChips += 3
-                        playersChips["whiteChips"] = whiteChips
+                        guard let whiteChips = betChips["whiteChips"] else { return }
+                        let totalWhiteChips = (3 * whiteChips) + playersChips["whiteChips"]!
+                        playersChips["whiteChips"] = totalWhiteChips
                     } else if chip.key == "redChips" {
-                        guard var redChips = playersChips["redChips"] else { return }
-                        redChips += 3
-                        playersChips["redChips"] = redChips
+                        guard let redChips = betChips["redChips"] else { return }
+                        let totalRedChips = (3 * redChips) + playersChips["redChips"]!
+                        playersChips["redChips"] = totalRedChips
                     } else if chip.key == "blueChips" {
-                        guard var blueChips = playersChips["blueChips"] else { return }
-                        blueChips += 3
-                        playersChips["blueChips"] = blueChips
+                        guard let blueChips = betChips["blueChips"] else { return }
+                        let totalBlueChips = (3 * blueChips) + playersChips["blueChips"]!
+                        playersChips["blueChips"] = totalBlueChips
                     } else if chip.key == "greenChips" {
-                        guard var greenChips = playersChips["greenChips"] else { return }
-                        greenChips += 3
-                        playersChips["greenChips"] = greenChips
+                        guard let greenChips = betChips["greenChips"] else { return }
+                        let totalGreenChips = (3 * greenChips) + playersChips["greenChips"]!
+                        playersChips["greenChips"] = totalGreenChips
                     } else if chip.key == "blackChips" {
-                        guard var blackChips = playersChips["blackChips"] else { return }
-                        blackChips += 3
-                        playersChips["blackChips"] = blackChips
+                        guard let blackChips = betChips["blackChips"] else { return }
+                        let totalBlackChips = (3 * blackChips) + playersChips["blackChips"]!
+                        playersChips["blackChips"] = totalBlackChips
                     } else if chip.key == "purpleChips" {
-                        guard var purpleChips = playersChips["purpleChips"] else { return }
-                        purpleChips += 3
-                        playersChips["purpleChips"] = purpleChips
+                        guard let purpleChips = betChips["purpleChips"] else { return }
+                        let totalPurpleChips = (3 * purpleChips) + playersChips["purpleChips"]!
+                        playersChips["purpleChips"] = totalPurpleChips
                     } else if chip.key == "yellowChips" {
-                        guard var yellowChips = playersChips["yellowChips"] else { return }
-                        yellowChips += 3
-                        playersChips["yellowChips"] = yellowChips
+                        guard let yellowChips = betChips["yellowChips"] else { return }
+                        let totalYellowChips = (3 * yellowChips) + playersChips["yellowChips"]!
+                        playersChips["yellowChips"] = totalYellowChips
                     } else if chip.key == "pinkChips" {
-                        guard var pinkChips = playersChips["pinkChips"] else { return }
-                        pinkChips += 3
-                        playersChips["pinkChips"] = pinkChips
+                        guard let pinkChips = betChips["pinkChips"] else { return }
+                        let totalPinkChips = (3 * pinkChips) + playersChips["pinkChips"]!
+                        playersChips["pinkChips"] = totalPinkChips
                     } else if chip.key == "orangeChips" {
-                        guard var orangeChips = playersChips["orangeChips"] else { return }
-                        orangeChips += 3
-                        playersChips["orangeChips"] = orangeChips
+                        guard let orangeChips = betChips["orangeChips"] else { return }
+                        let totalOrangeChips = (3 * orangeChips) + playersChips["orangeChips"]!
+                        playersChips["orangeChips"] = totalOrangeChips
                     }
                 }
+                
                 // Resets the betChips
                 betChips.removeAll()
             }
@@ -215,22 +231,32 @@ class BlackJackViewController: UIViewController {
         
         // Counts up the total of the players cards *** Remember an ace can be an eleven or a one and face cards are ten
         for card in playersCards {
-            // Sets the number to the first character of the card... ex. "2D" becomes 2
-            guard let number = Int(card.prefix(1)) else { print("The cards first character was not a number"); return }
+            var cardNumber = 0
+            
+            if card.count == 2 {
+                // Sets the number to the first character of the card... ex. "2D" becomes 2
+                guard let number = Int(card.prefix(1)) else { print("The cards first character was not a number"); return }
+                cardNumber = number
+            } else if card.count == 3 {
+                // Sets the number to the first character of the card... ex. "2D" becomes 2
+                guard let number = Int(card.prefix(2)) else { print("The cards first character was not a number"); return }
+                cardNumber = number
+            }
+            
             // Checks to see if the number is an ace
-            if number == 1 {
+            if cardNumber == 1 {
                 // Ace equals one
                 tempScoreWithAceAsOne += 1
                 // Ace equals eleven
                 tempScoreWithAceAsEleven += 11
-            } else if number > 10 {
+            } else if cardNumber > 10 {
                 // Add ten to their score if it is a face card
                 tempScoreWithAceAsOne += 10
                 tempScoreWithAceAsEleven += 10
             } else {
                 // Just add the number to the score because it is not a face card or an ace
-                tempScoreWithAceAsOne += number
-                tempScoreWithAceAsEleven += number
+                tempScoreWithAceAsOne += cardNumber
+                tempScoreWithAceAsEleven += cardNumber
             }
         }
         // Sets the players score
@@ -244,22 +270,32 @@ class BlackJackViewController: UIViewController {
         var tempScoreWithAceAsEleven: Int = 0
         
         for card in dealersCards {
-            // Sets the number to the first character of the card... ex. "2D" becomes 2
-            guard let number = Int(card.prefix(1)) else { print("The cards first character was not a number"); return }
+            var cardNumber = 0
+            
+            if card.count == 2 {
+                // Sets the number to the first character of the card... ex. "2D" becomes 2
+                guard let number = Int(card.prefix(1)) else { print("The cards first character was not a number"); return }
+                cardNumber = number
+            } else if card.count == 3 {
+                // Sets the number to the first character of the card... ex. "2D" becomes 2
+                guard let number = Int(card.prefix(2)) else { print("The cards first character was not a number"); return }
+                cardNumber = number
+            }
+            
             // Checks to see if the number is an ace
-            if number == 1 {
+            if cardNumber == 1 {
                 // Ace equals one
                 tempScoreWithAceAsOne += 1
                 // Ace equals eleven
                 tempScoreWithAceAsEleven += 11
-            } else if number > 10 {
+            } else if cardNumber > 10 {
                 // Add ten to their score if it is a face card
                 tempScoreWithAceAsOne += 10
                 tempScoreWithAceAsEleven += 10
             } else {
                 // Just add the number to the score because it is not a face card or an ace
-                tempScoreWithAceAsOne += number
-                tempScoreWithAceAsEleven += number
+                tempScoreWithAceAsOne += cardNumber
+                tempScoreWithAceAsEleven += cardNumber
             }
         }
         // Sets the dealers score
@@ -286,6 +322,7 @@ class BlackJackViewController: UIViewController {
             deck = newDeck
             // Gives the player their card
             dealersCards.append(drawnCard)
+            resetStackViewImages()
             setCardImages()
             // Runs the function again to see if the dealer busts
             dealersLogic()
@@ -311,6 +348,7 @@ class BlackJackViewController: UIViewController {
             deck = newDeck
             // Gives the player their card
             dealersCards.append(drawnCard)
+            resetStackViewImages()
             setCardImages()
             // Runs the function again to see if the dealer busts
             dealersLogic()
@@ -320,93 +358,115 @@ class BlackJackViewController: UIViewController {
     // Sees if the dealer or player wins, then takes and gives chips accordingly
     func payOut() {
         if dealerFinalScore > playerFinalScore {
+            // Adds an alert telling the player the dealer won
+            let dealerWonAlert = UIAlertController(title: "Oh no!", message: "The dealer won this time", preferredStyle: .alert)
+            
+            dealerWonAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            
+            self.present(dealerWonAlert, animated: true, completion: nil)
+            
             // Take the players bet
             betChips.removeAll()
         } else if dealerFinalScore < playerFinalScore {
+            // Adds an alert telling the player they won
+            let playerWonAlert = UIAlertController(title: "Yay!", message: "You won!", preferredStyle: .alert)
+            
+            playerWonAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            
+            self.present(playerWonAlert, animated: true, completion: nil)
+            
             // Give the player money
             for chip in betChips {
                 // Gives the player chips their chips back
                 if chip.key == "whiteChips" {
-                    guard var whiteChips = playersChips["whiteChips"] else { return }
-                    whiteChips += 2
-                    playersChips["whiteChips"] = whiteChips
+                    guard let whiteChips = betChips["whiteChips"] else { return }
+                    let totalWhiteChips = (2 * whiteChips) + playersChips["whiteChips"]!
+                    playersChips["whiteChips"] = totalWhiteChips
                 } else if chip.key == "redChips" {
-                    guard var redChips = playersChips["redChips"] else { return }
-                    redChips += 2
-                    playersChips["redChips"] = redChips
+                    guard let redChips = betChips["redChips"] else { return }
+                    let totalRedChips = (2 * redChips) + playersChips["redChips"]!
+                    playersChips["redChips"] = totalRedChips
                 } else if chip.key == "blueChips" {
-                    guard var blueChips = playersChips["blueChips"] else { return }
-                    blueChips += 2
-                    playersChips["blueChips"] = blueChips
+                    guard let blueChips = betChips["blueChips"] else { return }
+                    let totalBlueChips = (2 * blueChips) + playersChips["blueChips"]!
+                    playersChips["blueChips"] = totalBlueChips
                 } else if chip.key == "greenChips" {
-                    guard var greenChips = playersChips["greenChips"] else { return }
-                    greenChips += 2
-                    playersChips["greenChips"] = greenChips
+                    guard let greenChips = betChips["greenChips"] else { return }
+                    let totalGreenChips = (2 * greenChips) + playersChips["greenChips"]!
+                    playersChips["greenChips"] = totalGreenChips
                 } else if chip.key == "blackChips" {
-                    guard var blackChips = playersChips["blackChips"] else { return }
-                    blackChips += 2
-                    playersChips["blackChips"] = blackChips
+                    guard let blackChips = betChips["blackChips"] else { return }
+                    let totalBlackChips = (2 * blackChips) + playersChips["blackChips"]!
+                    playersChips["blackChips"] = totalBlackChips
                 } else if chip.key == "purpleChips" {
-                    guard var purpleChips = playersChips["purpleChips"] else { return }
-                    purpleChips += 2
-                    playersChips["purpleChips"] = purpleChips
+                    guard let purpleChips = betChips["purpleChips"] else { return }
+                    let totalPurpleChips = (2 * purpleChips) + playersChips["purpleChips"]!
+                    playersChips["purpleChips"] = totalPurpleChips
                 } else if chip.key == "yellowChips" {
-                    guard var yellowChips = playersChips["yellowChips"] else { return }
-                    yellowChips += 2
-                    playersChips["yellowChips"] = yellowChips
+                    guard let yellowChips = betChips["yellowChips"] else { return }
+                    let totalYellowChips = (2 * yellowChips) + playersChips["yellowChips"]!
+                    playersChips["yellowChips"] = totalYellowChips
                 } else if chip.key == "pinkChips" {
-                    guard var pinkChips = playersChips["pinkChips"] else { return }
-                    pinkChips += 2
-                    playersChips["pinkChips"] = pinkChips
+                    guard let pinkChips = betChips["pinkChips"] else { return }
+                    let totalPinkChips = (2 * pinkChips) + playersChips["pinkChips"]!
+                    playersChips["pinkChips"] = totalPinkChips
                 } else if chip.key == "orangeChips" {
-                    guard var orangeChips = playersChips["orangeChips"] else { return }
-                    orangeChips += 2
-                    playersChips["orangeChips"] = orangeChips
+                    guard let orangeChips = betChips["orangeChips"] else { return }
+                    let totalOrangeChips = (2 * orangeChips) + playersChips["orangeChips"]!
+                    playersChips["orangeChips"] = totalOrangeChips
                 }
             }
             
             // Resets the betChips
             betChips.removeAll()
+            
         } else if dealerFinalScore == playerFinalScore {
+            // Adds an alert telling the player they tied with the dealer
+            let tieAlert = UIAlertController(title: "Meh", message: "You tied with the dealer!", preferredStyle: .alert)
+            
+            tieAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            
+            self.present(tieAlert, animated: true, completion: nil)
+            
             // Give the players bet back
             for chip in betChips {
                 // Gives the player chips their chips back
                 if chip.key == "whiteChips" {
-                    guard var whiteChips = playersChips["whiteChips"] else { return }
-                    whiteChips += 1
-                    playersChips["whiteChips"] = whiteChips
+                    guard let whiteChips = betChips["whiteChips"] else { return }
+                    let totalWhiteChips = (1 * whiteChips) + playersChips["whiteChips"]!
+                    playersChips["whiteChips"] = totalWhiteChips
                 } else if chip.key == "redChips" {
-                    guard var redChips = playersChips["redChips"] else { return }
-                    redChips += 1
-                    playersChips["redChips"] = redChips
+                    guard let redChips = betChips["redChips"] else { return }
+                    let totalRedChips = (1 * redChips) + playersChips["redChips"]!
+                    playersChips["redChips"] = totalRedChips
                 } else if chip.key == "blueChips" {
-                    guard var blueChips = playersChips["blueChips"] else { return }
-                    blueChips += 1
-                    playersChips["blueChips"] = blueChips
+                    guard let blueChips = betChips["blueChips"] else { return }
+                    let totalBlueChips = (1 * blueChips) + playersChips["blueChips"]!
+                    playersChips["blueChips"] = totalBlueChips
                 } else if chip.key == "greenChips" {
-                    guard var greenChips = playersChips["greenChips"] else { return }
-                    greenChips += 1
-                    playersChips["greenChips"] = greenChips
+                    guard let greenChips = betChips["greenChips"] else { return }
+                    let totalGreenChips = (1 * greenChips) + playersChips["greenChips"]!
+                    playersChips["greenChips"] = totalGreenChips
                 } else if chip.key == "blackChips" {
-                    guard var blackChips = playersChips["blackChips"] else { return }
-                    blackChips += 1
-                    playersChips["blackChips"] = blackChips
+                    guard let blackChips = betChips["blackChips"] else { return }
+                    let totalBlackChips = (1 * blackChips) + playersChips["blackChips"]!
+                    playersChips["blackChips"] = totalBlackChips
                 } else if chip.key == "purpleChips" {
-                    guard var purpleChips = playersChips["purpleChips"] else { return }
-                    purpleChips += 1
-                    playersChips["purpleChips"] = purpleChips
+                    guard let purpleChips = betChips["purpleChips"] else { return }
+                    let totalPurpleChips = (1 * purpleChips) + playersChips["purpleChips"]!
+                    playersChips["purpleChips"] = totalPurpleChips
                 } else if chip.key == "yellowChips" {
-                    guard var yellowChips = playersChips["yellowChips"] else { return }
-                    yellowChips += 1
-                    playersChips["yellowChips"] = yellowChips
+                    guard let yellowChips = betChips["yellowChips"] else { return }
+                    let totalYellowChips = (1 * yellowChips) + playersChips["yellowChips"]!
+                    playersChips["yellowChips"] = totalYellowChips
                 } else if chip.key == "pinkChips" {
-                    guard var pinkChips = playersChips["pinkChips"] else { return }
-                    pinkChips += 1
-                    playersChips["pinkChips"] = pinkChips
+                    guard let pinkChips = betChips["pinkChips"] else { return }
+                    let totalPinkChips = (1 * pinkChips) + playersChips["pinkChips"]!
+                    playersChips["pinkChips"] = totalPinkChips
                 } else if chip.key == "orangeChips" {
-                    guard var orangeChips = playersChips["orangeChips"] else { return }
-                    orangeChips += 1
-                    playersChips["orangeChips"] = orangeChips
+                    guard let orangeChips = betChips["orangeChips"] else { return }
+                    let totalOrangeChips = (1 * orangeChips) + playersChips["orangeChips"]!
+                    playersChips["orangeChips"] = totalOrangeChips
                 }
             }
             
@@ -425,6 +485,13 @@ class BlackJackViewController: UIViewController {
         standButton.isHidden = true
         standButton.isEnabled = false
         youBetLabel.isHidden = true
+        
+        playersCards.removeAll()
+        dealersCards.removeAll()
+        resetStackViewImages()
+    }
+    
+    func resetStackViewImages() {
         // Removes all the cards from the stack view
         for view in playersCardsView.subviews {
             view.removeFromSuperview()
@@ -439,264 +506,264 @@ class BlackJackViewController: UIViewController {
         for card in playersCards {
             switch card {
             case "1D":
-                let image = UIImage(named: "AceOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let aceDiamondsImage = UIImage(named: "AceOfDiamonds")
+                let aceDiamondsImageView = UIImageView(image: aceDiamondsImage)
+                playersCardsView.addArrangedSubview(aceDiamondsImageView)
+                aceDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2D":
-                let image = UIImage(named: "TwoOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let twoDiamondsImage = UIImage(named: "TwoOfDiamonds")
+                let twoDiamondsImageView = UIImageView(image: twoDiamondsImage)
+                playersCardsView.addArrangedSubview(twoDiamondsImageView)
+                twoDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3D":
-                let image = UIImage(named: "ThreeOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let threeDiamondsImage = UIImage(named: "ThreeOfDiamonds")
+                let threeDiamondsImageView = UIImageView(image: threeDiamondsImage)
+                playersCardsView.addArrangedSubview(threeDiamondsImageView)
+                threeDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4D":
-                let image = UIImage(named: "FourOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let fourDiamondsImage = UIImage(named: "FourOfDiamonds")
+                let fourDiamondsImageView = UIImageView(image: fourDiamondsImage)
+                playersCardsView.addArrangedSubview(fourDiamondsImageView)
+                fourDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5D":
-                let image = UIImage(named: "FiveOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let fiveDiamondsImage = UIImage(named: "FiveOfDiamonds")
+                let fiveDiamondsImageView = UIImageView(image: fiveDiamondsImage)
+                playersCardsView.addArrangedSubview(fiveDiamondsImageView)
+                fiveDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6D":
-                let image = UIImage(named: "SixOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let sixDiamondsImage = UIImage(named: "SixOfDiamonds")
+                let sixDiamondsImageView = UIImageView(image: sixDiamondsImage)
+                playersCardsView.addArrangedSubview(sixDiamondsImageView)
+                sixDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7D":
-                let image = UIImage(named: "SevenOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let sevenDiamondsImage = UIImage(named: "SevenOfDiamonds")
+                let sevenDiamondsImageView = UIImageView(image: sevenDiamondsImage)
+                playersCardsView.addArrangedSubview(sevenDiamondsImageView)
+                sevenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8D":
-                let image = UIImage(named: "EightOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let eightDiamondsImage = UIImage(named: "EightOfDiamonds")
+                let eightDiamondsImageView = UIImageView(image: eightDiamondsImage)
+                playersCardsView.addArrangedSubview(eightDiamondsImageView)
+                eightDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9D":
-                let image = UIImage(named: "NineOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let nineDiamondsImage = UIImage(named: "NineOfDiamonds")
+                let nineDiamondsImageView = UIImageView(image: nineDiamondsImage)
+                playersCardsView.addArrangedSubview(nineDiamondsImageView)
+                nineDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10D":
-                let image = UIImage(named: "TenOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let tenDiamondsImage = UIImage(named: "TenOfDiamonds")
+                let tenDiamondsImageView = UIImageView(image: tenDiamondsImage)
+                playersCardsView.addArrangedSubview(tenDiamondsImageView)
+                tenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11D":
-                let image = UIImage(named: "JackOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let elevenDiamondsImage = UIImage(named: "JackOfDiamonds")
+                let elevenDiamondsImageView = UIImageView(image: elevenDiamondsImage)
+                playersCardsView.addArrangedSubview(elevenDiamondsImageView)
+                elevenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12D":
-                let image = UIImage(named: "QueenOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let twelveDiamondsImage = UIImage(named: "QueenOfDiamonds")
+                let twelveDiamondsImageView = UIImageView(image: twelveDiamondsImage)
+                playersCardsView.addArrangedSubview(twelveDiamondsImageView)
+                twelveDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13D":
-                let image = UIImage(named: "KingOfDiamonds")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let thirteenDiamondsImage = UIImage(named: "KingOfDiamonds")
+                let thirteenDiamondsImageView = UIImageView(image: thirteenDiamondsImage)
+                playersCardsView.addArrangedSubview(thirteenDiamondsImageView)
+                thirteenDiamondsImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1H":
-                let image = UIImage(named: "AceOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let oneHeartImage = UIImage(named: "AceOfHearts")
+                let oneHeartImageView = UIImageView(image: oneHeartImage)
+                playersCardsView.addArrangedSubview(oneHeartImageView)
+                oneHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2H":
-                let image = UIImage(named: "TwoOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let twoHeartImage = UIImage(named: "TwoOfHearts")
+                let twoHeartImageView = UIImageView(image: twoHeartImage)
+                playersCardsView.addArrangedSubview(twoHeartImageView)
+                twoHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3H":
-                let image = UIImage(named: "ThreeOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let threeHeartImage = UIImage(named: "ThreeOfHearts")
+                let threeHeartImageView = UIImageView(image: threeHeartImage)
+                playersCardsView.addArrangedSubview(threeHeartImageView)
+                threeHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4H":
-                let image = UIImage(named: "FourOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let fourHeartImage = UIImage(named: "FourOfHearts")
+                let fourHeartImageView = UIImageView(image: fourHeartImage)
+                playersCardsView.addArrangedSubview(fourHeartImageView)
+                fourHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5H":
-                let image = UIImage(named: "FiveOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let fiveHeartImage = UIImage(named: "FiveOfHearts")
+                let fiveHeartImageView = UIImageView(image: fiveHeartImage)
+                playersCardsView.addArrangedSubview(fiveHeartImageView)
+                fiveHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6H":
-                let image = UIImage(named: "SixOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let sixHeartImage = UIImage(named: "SixOfHearts")
+                let sixHeartImageView = UIImageView(image: sixHeartImage)
+                playersCardsView.addArrangedSubview(sixHeartImageView)
+                sixHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7H":
-                let image = UIImage(named: "SevenOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let sevenHeartImage = UIImage(named: "SevenOfHearts")
+                let sevenHeartImageView = UIImageView(image: sevenHeartImage)
+                playersCardsView.addArrangedSubview(sevenHeartImageView)
+                sevenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8H":
-                let image = UIImage(named: "EightOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let eightHeartImage = UIImage(named: "EightOfHearts")
+                let eightHeartImageView = UIImageView(image: eightHeartImage)
+                playersCardsView.addArrangedSubview(eightHeartImageView)
+                eightHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9H":
-                let image = UIImage(named: "NineOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let nineHeartImage = UIImage(named: "NineOfHearts")
+                let nineHeartImageView = UIImageView(image: nineHeartImage)
+                playersCardsView.addArrangedSubview(nineHeartImageView)
+                nineHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10H":
-                let image = UIImage(named: "TenOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let tenHeartImage = UIImage(named: "TenOfHearts")
+                let tenHeartImageView = UIImageView(image: tenHeartImage)
+                playersCardsView.addArrangedSubview(tenHeartImageView)
+                tenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11H":
-                let image = UIImage(named: "JackOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let elevenHeartImage = UIImage(named: "JackOfHearts")
+                let elevenHeartImageView = UIImageView(image: elevenHeartImage)
+                playersCardsView.addArrangedSubview(elevenHeartImageView)
+                elevenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12H":
-                let image = UIImage(named: "QueenOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let twelveHeartImage = UIImage(named: "QueenOfHearts")
+                let twelveHeartImageView = UIImageView(image: twelveHeartImage)
+                playersCardsView.addArrangedSubview(twelveHeartImageView)
+                twelveHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13H":
-                let image = UIImage(named: "KingOfHearts")
-                let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
-                imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
+                let thirteenHeartImage = UIImage(named: "KingOfHearts")
+                let thirteenHeartImageView = UIImageView(image: thirteenHeartImage)
+                playersCardsView.addArrangedSubview(thirteenHeartImageView)
+                thirteenHeartImageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1S":
                 let image = UIImage(named: "AceOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2S":
                 let image = UIImage(named: "TwoOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3S":
                 let image = UIImage(named: "ThreeOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4S":
                 let image = UIImage(named: "FourOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5S":
                 let image = UIImage(named: "FiveOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6S":
                 let image = UIImage(named: "SixOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7S":
                 let image = UIImage(named: "SevenOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8S":
                 let image = UIImage(named: "EightOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9S":
                 let image = UIImage(named: "NineOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10S":
                 let image = UIImage(named: "TenOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11S":
                 let image = UIImage(named: "JackOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12S":
                 let image = UIImage(named: "QueenOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13S":
                 let image = UIImage(named: "KingOfSpades")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1C":
                 let image = UIImage(named: "AceOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2C":
                 let image = UIImage(named: "TwoOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3C":
                 let image = UIImage(named: "ThreeOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4C":
                 let image = UIImage(named: "FourOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5C":
                 let image = UIImage(named: "FiveOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6C":
                 let image = UIImage(named: "SixOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7C":
                 let image = UIImage(named: "SevenOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8C":
                 let image = UIImage(named: "EightOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9C":
                 let image = UIImage(named: "NineOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10C":
                 let image = UIImage(named: "TenOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11C":
                 let image = UIImage(named: "JackOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12C":
                 let image = UIImage(named: "QueenOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13C":
                 let image = UIImage(named: "KingOfClubs")
                 let imageView = UIImageView(image: image)
-                playersCardsView.addSubview(imageView)
+                playersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             default:
                 break
@@ -707,262 +774,262 @@ class BlackJackViewController: UIViewController {
             case "1D":
                 let image = UIImage(named: "AceOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2D":
                 let image = UIImage(named: "TwoOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3D":
                 let image = UIImage(named: "ThreeOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4D":
                 let image = UIImage(named: "FourOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5D":
                 let image = UIImage(named: "FiveOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6D":
                 let image = UIImage(named: "SixOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7D":
                 let image = UIImage(named: "SevenOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8D":
                 let image = UIImage(named: "EightOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9D":
                 let image = UIImage(named: "NineOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10D":
                 let image = UIImage(named: "TenOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11D":
                 let image = UIImage(named: "JackOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12D":
                 let image = UIImage(named: "QueenOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13D":
                 let image = UIImage(named: "KingOfDiamonds")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1H":
                 let image = UIImage(named: "AceOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2H":
                 let image = UIImage(named: "TwoOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3H":
                 let image = UIImage(named: "ThreeOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4H":
                 let image = UIImage(named: "FourOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5H":
                 let image = UIImage(named: "FiveOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6H":
                 let image = UIImage(named: "SixOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7H":
                 let image = UIImage(named: "SevenOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8H":
                 let image = UIImage(named: "EightOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9H":
                 let image = UIImage(named: "NineOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10H":
                 let image = UIImage(named: "TenOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11H":
                 let image = UIImage(named: "JackOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12H":
                 let image = UIImage(named: "QueenOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13H":
                 let image = UIImage(named: "KingOfHearts")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1S":
                 let image = UIImage(named: "AceOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2S":
                 let image = UIImage(named: "TwoOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3S":
                 let image = UIImage(named: "ThreeOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4S":
                 let image = UIImage(named: "FourOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5S":
                 let image = UIImage(named: "FiveOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6S":
                 let image = UIImage(named: "SixOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7S":
                 let image = UIImage(named: "SevenOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8S":
                 let image = UIImage(named: "EightOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9S":
                 let image = UIImage(named: "NineOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10S":
                 let image = UIImage(named: "TenOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11S":
                 let image = UIImage(named: "JackOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12S":
                 let image = UIImage(named: "QueenOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13S":
                 let image = UIImage(named: "KingOfSpades")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "1C":
                 let image = UIImage(named: "AceOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "2C":
                 let image = UIImage(named: "TwoOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "3C":
                 let image = UIImage(named: "ThreeOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "4C":
                 let image = UIImage(named: "FourOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "5C":
                 let image = UIImage(named: "FiveOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "6C":
                 let image = UIImage(named: "SixOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "7C":
                 let image = UIImage(named: "SevenOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "8C":
                 let image = UIImage(named: "EightOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "9C":
                 let image = UIImage(named: "NineOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "10C":
                 let image = UIImage(named: "TenOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "11C":
                 let image = UIImage(named: "JackOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "12C":
                 let image = UIImage(named: "QueenOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             case "13C":
                 let image = UIImage(named: "KingOfClubs")
                 let imageView = UIImageView(image: image)
-                dealersCardsView.addSubview(imageView)
+                dealersCardsView.addArrangedSubview(imageView)
                 imageView.frame = CGRect(x: 0, y: 0, width: ((playersCardsView.frame.height) * 10 / 28), height: (playersCardsView.frame.height / 2))
             default:
                 print("Somehow not a card")
@@ -973,6 +1040,7 @@ class BlackJackViewController: UIViewController {
     
     // Call this function when the play button gets tapped, this will essentially start the game
     @IBAction func playGameButtonTapped(_ sender: Any) {
+        
         // This function needs to ask for a bet and deal the cards out afterwards
         guard let username = username else { print("The username was not there"); return }
         let betAlert = UIAlertController(title: ("Welcome, " + username), message: "How many chips do you wish to bet?", preferredStyle: .alert)
@@ -1047,7 +1115,7 @@ class BlackJackViewController: UIViewController {
             if self.playersChips["redChips"] != 0 {
                 guard let redChipsTextField = betAlert.textFields?[1], let redChips = redChipsTextField.text else { print("Failed to get redChips bet"); return }
                 if let integerRedChips = Int(redChips) {
-                    numWhiteChips = integerRedChips
+                    numRedChips = integerRedChips
                 } else {
                     numRedChips = 0
                 }
@@ -1113,14 +1181,23 @@ class BlackJackViewController: UIViewController {
             
             // Append the bet chips dictionary with the chips the user bet
             self.betChips["whiteChips"] = numWhiteChips
+            self.playersChips["whiteChips"]! -= numWhiteChips
             self.betChips["redChips"] = numRedChips
+            self.playersChips["redChips"]! -= numRedChips
             self.betChips["blueChips"] = numBlueChips
+            self.playersChips["blueChips"]! -= numBlueChips
             self.betChips["greenChips"] = numGreenChips
+            self.playersChips["greenChips"]! -= numGreenChips
             self.betChips["blackChips"] = numBlackChips
+            self.playersChips["blackChips"]! -= numBlackChips
             self.betChips["purpleChips"] = numPurpleChips
+            self.playersChips["purpleChips"]! -= numPurpleChips
             self.betChips["yellowChips"] = numYellowChips
+            self.playersChips["yellowChips"]! -= numYellowChips
             self.betChips["pinkChips"] = numPinkChips
+            self.playersChips["pinkChips"]! -= numPinkChips
             self.betChips["orangeChips"] = numOrangeChips
+            self.playersChips["orangeChips"]! -= numOrangeChips
             
             // Get the amount of money they bet
             var betMoney: Int = 0
@@ -1200,9 +1277,13 @@ class BlackJackViewController: UIViewController {
         deck = newDeck
         // Gives the player their card
         playersCards.append(drawnCard)
+        resetStackViewImages()
         setCardImages()
+        
         // Sets the players score
         setPlayersScore()
+        print(playersCards)
+        print(playerScoreWithAceAsOne)
         
         // The game ends only if the player's hand is above 21
         // The player busts, game ends
@@ -1211,6 +1292,8 @@ class BlackJackViewController: UIViewController {
             let bustAlert = UIAlertController(title: "Oh no!", message: "It looks like you bust with a score of \(playerScoreWithAceAsOne)", preferredStyle: .alert)
             
             bustAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            
+            self.present(bustAlert, animated: true, completion: nil)
             
             betChips.removeAll()
             
