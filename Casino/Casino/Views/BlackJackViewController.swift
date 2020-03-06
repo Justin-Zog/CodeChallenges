@@ -102,10 +102,10 @@ class BlackJackViewController: UIViewController {
             deck = newDeck
             if i % 2 != 0 {
                 playersCards.append(drawnCard)
-                setCardImages()
+                // setCardImages()
             } else {
                 dealersCards.append(drawnCard)
-                setCardImages()
+                // setCardImages()
             }
         }
         
@@ -1032,29 +1032,93 @@ class BlackJackViewController: UIViewController {
         
         betAlert.addAction(UIAlertAction(title: "Bet!", style: .default, handler: { _ in
             
+            var numWhiteChips = 0
+            var numRedChips = 0
+            var numBlueChips = 0
+            var numGreenChips = 0
+            var numBlackChips = 0
+            var numPurpleChips = 0
+            var numYellowChips = 0
+            var numPinkChips = 0
+            var numOrangeChips = 0
+            
             // Get the chips they bet from the text field
-            guard let whiteChipsTextField = betAlert.textFields?[0], let whiteChips = whiteChipsTextField.text else { print("Failed to get whiteChips bet"); return }
-            guard let redChipsTextField = betAlert.textFields?[1], let redChips = redChipsTextField.text else { print("Failed to get redChips bet"); return }
-            guard let blueChipsTextField = betAlert.textFields?[2], let blueChips = blueChipsTextField.text else { print("Failed to get blueChips bet"); return }
-            guard let greenChipsTextField = betAlert.textFields?[3], let greenChips = greenChipsTextField.text else { print("Failed to get greenChips bet"); return }
-            guard let blackChipsTextField = betAlert.textFields?[4], let blackChips = blackChipsTextField.text else { print("Failed to get blackChips bet"); return }
-            guard let purpleChipsTextField = betAlert.textFields?[5], let purpleChips = purpleChipsTextField.text else { print("Failed to get purpleChips bet"); return }
-            guard let yellowChipsTextField = betAlert.textFields?[6], let yellowChips = yellowChipsTextField.text else { print("Failed to get yellowChips bet"); return }
-            guard let pinkChipsTextField = betAlert.textFields?[7], let pinkChips = pinkChipsTextField.text else { print("Failed to get pinkChips bet"); return }
-            guard let orangeChipsTextField = betAlert.textFields?[8], let orangeChips = orangeChipsTextField.text else { print("Failed to get orangeChips bet"); return }
+            if self.playersChips["whiteChips"] != 0 {
+                 guard let whiteChipsTextField = betAlert.textFields?[0], let whiteChips = whiteChipsTextField.text else { print("Failed to get whiteChips bet"); return }
+                if let integerWhiteChips = Int(whiteChips) {
+                    numWhiteChips = integerWhiteChips
+                } else {
+                    numWhiteChips = 0
+                }
+            }
+            if self.playersChips["redChips"] != 0 {
+                guard let redChipsTextField = betAlert.textFields?[1], let redChips = redChipsTextField.text else { print("Failed to get redChips bet"); return }
+                if let integerRedChips = Int(redChips) {
+                    numWhiteChips = integerRedChips
+                } else {
+                    numRedChips = 0
+                }
+            }
+            if self.playersChips["blueChips"] != 0 {
+                guard let blueChipsTextField = betAlert.textFields?[2], let blueChips = blueChipsTextField.text else { print("Failed to get blueChips bet"); return }
+                if let integerBlueChips = Int(blueChips) {
+                    numBlueChips = integerBlueChips
+                } else {
+                    numBlueChips = 0
+                }
+            }
+            if self.playersChips["greenChips"] != 0 {
+                guard let greenChipsTextField = betAlert.textFields?[3], let greenChips = greenChipsTextField.text else { print("Failed to get greenChips bet"); return }
+                if let integerGreenChips = Int(greenChips) {
+                    numGreenChips = integerGreenChips
+                } else {
+                    numGreenChips = 0
+
+                }
+            }
+            if self.playersChips["blackChips"] != 0 {
+                guard let blackChipsTextField = betAlert.textFields?[4], let blackChips = blackChipsTextField.text else { print("Failed to get blackChips bet"); return }
+                if let integerBlackChips = Int(blackChips) {
+                    numBlackChips = integerBlackChips
+                } else {
+                    numBlackChips = 0
+                }
+            }
+            if self.playersChips["purpleChips"] != 0 {
+                guard let purpleChipsTextField = betAlert.textFields?[5], let purpleChips = purpleChipsTextField.text else { print("Failed to get purpleChips bet"); return }
+                if let integerPurpleChips = Int(purpleChips) {
+                    numPurpleChips = integerPurpleChips
+                } else {
+                    numPurpleChips = 0
+                }
+            }
+            if self.playersChips["yellowChips"] != 0 {
+                guard let yellowChipsTextField = betAlert.textFields?[6], let yellowChips = yellowChipsTextField.text else { print("Failed to get yellowChips bet"); return }
+                if let integerYellowChips = Int(yellowChips) {
+                    numYellowChips = integerYellowChips
+                } else {
+                    numYellowChips = 0
+                }
+            }
+            if self.playersChips["pinkChips"] != 0 {
+                guard let pinkChipsTextField = betAlert.textFields?[7], let pinkChips = pinkChipsTextField.text else { print("Failed to get pinkChips bet"); return }
+                if let integerPinkChips = Int(pinkChips) {
+                    numPinkChips = integerPinkChips
+                } else {
+                    numPinkChips = 0
+                }
+            }
+            if self.playersChips["orangeChips"] != 0 {
+                guard let orangeChipsTextField = betAlert.textFields?[8], let orangeChips = orangeChipsTextField.text else { print("Failed to get orangeChips bet"); return }
+                if let integerOrangeChips = Int(orangeChips) {
+                    numOrangeChips = integerOrangeChips
+                } else {
+                    numOrangeChips = 0
+                }
+            }
+            
             
             // Append the bet chips dictionary with the chips the user bet
-            
-            guard let numWhiteChips = Int(whiteChips) else { return }
-            guard let numRedChips = Int(redChips) else { return }
-            guard let numBlueChips = Int(blueChips) else { return }
-            guard let numGreenChips = Int(greenChips) else { return }
-            guard let numBlackChips = Int(blackChips) else { return }
-            guard let numPurpleChips = Int(purpleChips) else { return }
-            guard let numYellowChips = Int(yellowChips) else { return }
-            guard let numPinkChips = Int(pinkChips) else { return }
-            guard let numOrangeChips = Int(orangeChips) else { return }
-            
             self.betChips["whiteChips"] = numWhiteChips
             self.betChips["redChips"] = numRedChips
             self.betChips["blueChips"] = numBlueChips
@@ -1067,32 +1131,50 @@ class BlackJackViewController: UIViewController {
             
             // Get the amount of money they bet
             var betMoney: Int = 0
-            for _ in 0...numWhiteChips {
-                betMoney += 1
+            if numWhiteChips != 0 {
+                for _ in 1...numWhiteChips {
+                    betMoney += 1
+                }
             }
-            for _ in 0...numRedChips {
-                betMoney += 5
+            if numRedChips != 0 {
+                for _ in 1...numRedChips {
+                    betMoney += 5
+                }
             }
-            for _ in 0...numBlueChips {
-                betMoney += 10
+            if numBlueChips != 0 {
+                for _ in 1...numBlueChips {
+                    betMoney += 10
+                }
             }
-            for _ in 0...numGreenChips {
-                betMoney += 25
+            if numGreenChips != 0 {
+                for _ in 1...numGreenChips {
+                    betMoney += 25
+                }
             }
-            for _ in 0...numBlackChips {
-                betMoney += 100
+            if numBlackChips != 0 {
+                for _ in 1...numBlackChips {
+                    betMoney += 100
+                }
             }
-            for _ in 0...numPurpleChips {
-                betMoney += 500
+            if numPurpleChips != 0 {
+                for _ in 1...numPurpleChips {
+                    betMoney += 500
+                }
             }
-            for _ in 0...numYellowChips {
-                betMoney += 1000
+            if numYellowChips != 0 {
+                for _ in 1...numYellowChips {
+                    betMoney += 1000
+                }
             }
-            for _ in 0...numPinkChips {
-                betMoney += 5000
+            if numPinkChips != 0 {
+                for _ in 1...numPinkChips {
+                    betMoney += 5000
+                }
             }
-            for _ in 0...numOrangeChips {
-                betMoney += 10000
+            if numOrangeChips != 0 {
+                for _ in 0...numOrangeChips {
+                    betMoney += 10000
+                }
             }
             
             self.youBetLabel.text = ("You bet \(betMoney) dollars")
